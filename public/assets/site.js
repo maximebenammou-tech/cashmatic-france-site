@@ -72,6 +72,8 @@
 
   var form=document.getElementById('quote');
   if(form){
+  form.dataset.t=String(Date.now());
+  if(/[?&]contact=envoye/.test(location.search)){var o=document.getElementById('form-ok');if(o)o.style.display='block'}
   function check(field){
     var input=field.querySelector('input,select,textarea');
     if(!input)return true;
@@ -90,10 +92,23 @@
     var fields=form.querySelectorAll('.field'),first=null;
     fields.forEach(function(f){if(!check(f)&&!first)first=f});
     if(first){first.querySelector('input,select,textarea').focus();return}
-    var d=new FormData(form),body='';
-    d.forEach(function(v,k){if(v)body+=k.charAt(0).toUpperCase()+k.slice(1)+' : '+v+'\n'});
-    window.location.href='mailto:contact@cashmatic-france.fr?subject='+encodeURIComponent('Demande de devis — '+d.get('commerce'))+'&body='+encodeURIComponent(body);
-    document.getElementById('form-ok').style.display='block';
+    var btn=form.querySelector('button[type="submit"]'),label=btn.innerHTML;
+    var ok=document.getElementById('form-ok'),err=document.getElementById('form-err');
+    ok.style.display='none';err.style.display='none';
+    btn.disabled=true;btn.textContent='Envoi en cours…';
+    var d=new FormData(form);d.append('t',form.dataset.t||'');
+    function fail(msg){
+      err.innerHTML=' Vous pouvez aussi nous écrire à <a href="mailto:contact@cashmatic-france.fr">contact@cashmatic-france.fr</a> ou appeler le <a href="tel:+33765745060">07 65 74 50 60</a>.';
+      err.insertBefore(document.createTextNode(msg||"L'envoi n'a pas abouti."),err.firstChild);
+      err.style.display='block';btn.disabled=false;btn.innerHTML=label;
+    }
+    fetch(form.getAttribute('action'),{method:'POST',body:d,headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json().catch(function(){return {ok:false}}).then(function(j){return {status:r.status,j:j}})})
+      .then(function(res){
+        if(res.j&&res.j.ok){form.reset();form.querySelectorAll('.field').forEach(function(f){f.classList.remove('invalid')});ok.style.display='block';btn.disabled=false;btn.innerHTML=label;ok.focus&&ok.setAttribute('tabindex','-1');ok.focus();}
+        else fail(res.j&&res.j.message);
+      })
+      .catch(function(){fail()});
   });
   }
 })();

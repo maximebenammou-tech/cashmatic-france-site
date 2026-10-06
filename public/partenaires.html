@@ -322,7 +322,9 @@
         <a href="mailto:contact@cashmatic-france.fr"><span><small>E-mail</small><b>contact@cashmatic-france.fr</b></span><span aria-hidden="true">→</span></a>
       </div>
     </div>
-    <form id="quote" class="rv d2" novalidate>
+    <form id="quote" class="rv d2" action="contact.php" method="post" novalidate>
+      <input type="hidden" name="page" value="partenaires">
+      <div class="hp" aria-hidden="true"><label for="f-site">Ne pas remplir</label><input id="f-site" name="site_web" tabindex="-1" autocomplete="off"></div>
       <span class="beam-border" aria-hidden="true"></span>
       <div class="row">
         <div class="field"><label for="f-name">Nom et prénom</label><input id="f-name" name="nom" autocomplete="name" required><span class="err">Indiquez votre nom.</span></div>
@@ -342,7 +344,8 @@
       <div class="field"><label for="f-msg">Votre projet <i>(facultatif)</i></label><textarea id="f-msg" name="message" placeholder="Votre logiciel, votre réseau, le nombre de points de vente équipables…"></textarea></div>
       <button class="btn btn-primary" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
       <p class="form-note">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html#donnees">Données personnelles</a></p>
-      <p class="form-ok" role="status" id="form-ok">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : il ne reste qu'à l'envoyer.</p>
+      <p class="form-ok" role="status" id="form-ok">Merci, votre demande est bien partie. Nous vous répondons sous 24 h ouvrées.</p>
+      <p class="form-err" role="alert" id="form-err"></p>
     </form>
   </div>
 </section>

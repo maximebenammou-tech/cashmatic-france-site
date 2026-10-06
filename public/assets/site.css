@@ -221,6 +221,10 @@ form{background:var(--card);border-radius:var(--r-lg);padding:clamp(24px,3.4vw,4
 .field.invalid .err{display:block}
 form .btn{width:100%;justify-content:center;margin-top:6px}
 .form-note{font-size:13px;color:var(--ink-3);margin-top:14px;text-align:center}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-err{display:none;padding:18px;border-radius:12px;background:#FBEAE8;color:#8A2A21;font-size:15px;margin-top:16px}
+.form-err a{color:inherit;font-weight:600}
+#quote button[disabled]{opacity:.7;cursor:progress}
 .form-ok{display:none;padding:18px;border-radius:12px;background:var(--accent-soft);color:var(--accent-ink);font-size:15px;margin-top:16px}
 
 /* footer */
