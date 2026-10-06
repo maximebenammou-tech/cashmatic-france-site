@@ -14,6 +14,11 @@ RewriteRule ^la-gamme-cashmatic-france/?$ https://cashmatic-france.fr/#gamme [R=
 RewriteRule ^la-gamme-cashmatic-france/gdo-2/?$ https://cashmatic-france.fr/#gamme [R=301,L,NE]
 RewriteRule ^la-gamme-cashmatic-france/selfpay-family-2/?$ https://cashmatic-france.fr/selfpay.html [R=301,L,NE]
 RewriteRule ^la-gamme-cashmatic-france/visualpay/?$ https://cashmatic-france.fr/visualpay.html [R=301,L,NE]
+RewriteRule ^politique-de-cookies-eu/?$ https://cashmatic-france.fr/mentions-legales.html#cookies [R=301,L,NE]
+RewriteRule ^(a-propos|qui-sommes-nous)/?$ https://cashmatic-france.fr/ [R=301,L,NE]
+RewriteRule ^(la-gamme-cashmatic-france/)?selfpay-family(-2)?/?$ https://cashmatic-france.fr/selfpay.html [R=301,L,NE]
+RewriteRule ^visualpay/?$ https://cashmatic-france.fr/visualpay.html [R=301,L,NE]
+RewriteRule ^(la-gamme-cashmatic-france/)?gdo(-2)?/?$ https://cashmatic-france.fr/#gamme [R=301,L,NE]
 RewriteRule ^(sitemap_index|page-sitemap|wp-sitemap)\.xml$ https://cashmatic-france.fr/sitemap.xml [R=301,L,NE]
 
 # HTTPS et domaine sans www
