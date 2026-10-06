@@ -1,0 +1,50 @@
+# Hébergement o2switch (cPanel, Apache) : mêmes règles que vercel.json
+
+RewriteEngine On
+
+# Anciennes URL WordPress -> nouvelles pages (301, une seule redirection)
+RewriteRule ^conditions-generales/?$ https://cashmatic-france.fr/mentions-legales.html [R=301,L,NE]
+RewriteRule ^mentions-legales/?$ https://cashmatic-france.fr/mentions-legales.html [R=301,L,NE]
+RewriteRule ^politique-de-cookies-ue/?$ https://cashmatic-france.fr/mentions-legales.html#cookies [R=301,L,NE]
+RewriteRule ^contact/?$ https://cashmatic-france.fr/#contact [R=301,L,NE]
+RewriteRule ^financement/?$ https://cashmatic-france.fr/#financement [R=301,L,NE]
+RewriteRule ^lentreprise/?$ https://cashmatic-france.fr/ [R=301,L,NE]
+RewriteRule ^nos-realisations/?$ https://cashmatic-france.fr/#secteurs [R=301,L,NE]
+RewriteRule ^la-gamme-cashmatic-france/?$ https://cashmatic-france.fr/#gamme [R=301,L,NE]
+RewriteRule ^la-gamme-cashmatic-france/gdo-2/?$ https://cashmatic-france.fr/#gamme [R=301,L,NE]
+RewriteRule ^la-gamme-cashmatic-france/selfpay-family-2/?$ https://cashmatic-france.fr/selfpay.html [R=301,L,NE]
+RewriteRule ^la-gamme-cashmatic-france/visualpay/?$ https://cashmatic-france.fr/visualpay.html [R=301,L,NE]
+RewriteRule ^(sitemap_index|page-sitemap|wp-sitemap)\.xml$ https://cashmatic-france.fr/sitemap.xml [R=301,L,NE]
+
+# HTTPS et domaine sans www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://cashmatic-france.fr%{REQUEST_URI} [L,R=301]
+
+# Dossiers internes non publiés
+RewriteRule ^(outils|apercu)(/|$) - [F,L]
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(css|js|webp|png|jpg|svg)$">
+    Header set Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
+  </FilesMatch>
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml text/plain
+</IfModule>
+
+ErrorDocument 404 /index.html

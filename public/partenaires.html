@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})},4000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Éditeurs et revendeurs : intégrer Cashmatic | CMDF</title>
+<meta name="description" content="Éditeurs de logiciel de caisse et revendeurs : intégrez les monnayeurs Cashmatic via une API REST documentée. Accompagnement, stock et SAV en France.">
+<link rel="canonical" href="https://cashmatic-france.fr/partenaires.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="CMDF — Cashmatic Distribution France">
+<meta property="og:url" content="https://cashmatic-france.fr/partenaires.html">
+<meta property="og:title" content="Éditeurs et revendeurs : intégrer Cashmatic | CMDF">
+<meta property="og:description" content="Éditeurs de logiciel de caisse et revendeurs : intégrez les monnayeurs Cashmatic via une API REST documentée. Accompagnement, stock et SAV en France.">
+<meta property="og:image" content="https://cashmatic-france.fr/assets/og-partenaires.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Intégrez Cashmatic à votre logiciel de caisse">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cashmatic-france.fr/assets/og-partenaires.jpg">
+<link rel="apple-touch-icon" href="assets/logo-cmdf.png">
+<link rel="icon" href="assets/logo-cmdf.png">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.crumbs{font-size:14px;color:var(--ink-3);padding-top:28px}
+.crumbs ol{list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs li+li::before{content:"/";margin-right:8px;color:var(--ink-3)}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
+.sp-hero{padding:clamp(28px,5vw,64px) 0 clamp(56px,7vw,96px)}
+.sp-hero .hero-media figure{aspect-ratio:4/4.4;background:#3A57C4}
+.sp-hero .hero-media figure img{object-position:50% 60%}
+.how{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.how li{list-style:none;padding:28px 28px 0 0}
+.how li+li{padding-left:28px;border-left:1px solid var(--line)}
+.how .mono{font-size:13px;color:var(--accent)}
+.how h3{font-size:22px;letter-spacing:-.015em;margin:10px 0 8px;line-height:1.25}
+.how p{color:var(--ink-2);max-width:34ch}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.adv div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 28px 34px;background:var(--paper)}
+.adv .mono{font-size:13px;color:var(--accent)}
+.adv h3{font-size:21px;letter-spacing:-.015em;margin:14px 0 8px;line-height:1.25}
+.adv p{color:var(--ink-2);font-size:16px}
+.mtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.mtab{font:inherit;color:var(--ink-2);background:transparent;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .2s,border-color .2s,color .2s,transform .12s var(--ease)}
+.mtab .mono{font-size:18px;font-weight:500;color:var(--ink)}
+.mtab small{font-size:13px;color:var(--ink-3)}
+.mtab:hover{border-color:var(--ink-3)}
+.mtab:active{transform:scale(.98)}
+.mtab[aria-selected="true"]{background:var(--card);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.mtab[aria-selected="true"] .mono{color:var(--accent)}
+.mpanel{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,64px);background:var(--card);border-radius:var(--r-lg);padding:clamp(16px,2vw,24px);align-items:center;box-shadow:0 1px 0 var(--line)}
+.mpanel[hidden]{display:none}
+.mpanel-img{border-radius:16px;overflow:hidden;background:#BDBDBD;aspect-ratio:636/900}
+.mpanel-img img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;animation:fadein .5s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
+.mpanel-body{padding:12px clamp(0px,2vw,24px) 12px 0;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.mpanel-body .kicker{font-family:"Geist Mono",monospace;font-size:13px;color:var(--accent)}
+.mpanel-body h3{font-size:clamp(32px,3.6vw,48px)}
+.mpanel-body p{color:var(--ink-2);max-width:52ch;font-size:18px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);width:100%;border-top:1px solid var(--line);margin:8px 0}
+.specs div{padding:12px 16px 12px 0;border-bottom:1px solid var(--line)}
+.specs div:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.specs dt{font-size:12px;color:var(--ink-3)}
+.specs dd{font-size:15px;font-weight:500;margin-top:3px;font-variant-numeric:tabular-nums}
+.spec-note{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.spec-na{font-size:15px!important;color:var(--ink-3)!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;width:100%}
+.common{border-top:1px solid var(--ink)}
+.common div{display:grid;grid-template-columns:1fr 1.6fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.common dt{color:var(--ink-3)}
+.common dd{font-weight:500}
+.sec-list{border-top:1px solid var(--line)}
+.sec-row{display:grid;grid-template-columns:1fr 1.7fr 150px;gap:32px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.sec-row h3{font-size:22px;letter-spacing:-.015em;line-height:1.25}
+.sec-row p{color:var(--ink-2)}
+.sec-row .mono{font-size:13px;color:var(--accent);white-space:nowrap;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{font-size:16px;font-weight:500;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+@media (max-width:900px){
+  .how,.adv{grid-template-columns:1fr}
+  .how li+li{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:24px}
+  .mtabs{grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:visible;scrollbar-width:none;margin:0 calc(-1*clamp(16px,4vw,40px)) 18px;padding:0 clamp(16px,4vw,40px)}
+  .mpanel{grid-template-columns:1fr}
+  .mpanel-img{aspect-ratio:4/3.6}
+  .mpanel-img img{object-position:50% 62%}
+  .sec-row{grid-template-columns:1fr;gap:6px}
+  .sec-row .mono{text-align:left}
+  .common div{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:560px){.specs{grid-template-columns:1fr 1fr}.specs div{padding-left:0!important;border-left:0!important}.specs div:nth-child(even){padding-left:14px!important;border-left:1px solid var(--line)!important}}
+
+.p-hero .hero-grid{align-items:center}
+.p-hero .beam{background:var(--card);border-radius:var(--r-lg);padding:28px 22px;box-shadow:var(--shadow);grid-template-columns:minmax(0,1fr) auto minmax(0,.9fr);gap:22px}
+.p-hero .bhub img{width:72px}
+.p-hero .bnode b{white-space:normal}
+.profiles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.profile{background:var(--card);border-radius:var(--r-lg);padding:clamp(24px,3vw,40px);box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:12px}
+.profile .mono{font-size:13px;color:var(--accent)}
+.profile h3{font-size:clamp(26px,2.6vw,34px)}
+.profile>p{color:var(--ink-2)}
+.profile ul{list-style:none;margin-top:10px;border-top:1px solid var(--line)}
+.profile li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.profile li b{font-weight:600}
+.profile li span{color:var(--ink-2);font-size:15px}
+.api{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.api h2{font-size:clamp(34px,4.4vw,58px);margin:16px 0 20px}
+.api-feats{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;color:var(--ink-2);font-size:15px}
+.api-feats li{display:flex;gap:10px}
+.api-feats li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px}
+.code{background:#14161B;color:#D6D9E0;border-radius:var(--r-lg);padding:24px 26px;font-family:"Geist Mono",monospace;font-size:13px;line-height:1.75;box-shadow:var(--shadow);overflow-x:auto}
+.code .c-head{display:flex;justify-content:space-between;color:#8A90A0;font-size:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid #262A33}
+.code .g{color:#8A90A0;display:block;margin-top:12px}
+.code .g:first-of-type{margin-top:0}
+.code .m{color:#7F98F0}
+.code .p{color:#E6E8EE}
+.api-note{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.p-range{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.p-range a{background:var(--card);border-radius:var(--r-md);padding:22px;text-decoration:none;box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:6px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+@media (hover:hover) and (pointer:fine){.p-range a:hover{transform:translateY(-3px);box-shadow:var(--shadow)}}
+.p-range .mono{font-size:12px;color:var(--accent)}
+.p-range b{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.p-range span{color:var(--ink-2);font-size:14px}
+@media (max-width:900px){.profiles,.api{grid-template-columns:1fr}.p-range{grid-template-columns:1fr 1fr}.api-feats{grid-template-columns:1fr}}
+@media (max-width:560px){.p-range{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json" id="ld-org">[{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/bar-sp460.webp", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cashmatic-france.fr/"}, {"@type": "ListItem", "position": 2, "name": "Partenaires", "item": "https://cashmatic-france.fr/partenaires.html"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38">
+      <span><b>CMDF</b><small>Cashmatic Distribution France</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="selfpay.html">SelfPay</a></li>
+        <li><a href="visualpay.html">VisualPay</a></li>
+        <li><a href="index.html#appli">Application</a></li>
+        <li><a href="index.html#financement">Financement</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="partenaires.html" aria-current="page">Partenaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="tel mono" href="tel:+33765745060">07 65 74 50 60</a>
+      <a class="btn btn-primary" href="#contact">Demander un devis</a>
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="menu">
+    <a href="selfpay.html">SelfPay</a>
+    <a href="visualpay.html">VisualPay</a>
+    <a href="index.html#appli">Application</a>
+    <a href="index.html#financement">Financement</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="#contact">Demander un devis</a>
+  </div>
+</header>
+
+<main id="main">
+
+<nav class="wrap crumbs" aria-label="Fil d'Ariane"><ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Partenaires</li></ol></nav>
+
+<section class="p-hero sp-hero hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow rv">Éditeurs de logiciel et revendeurs</p>
+      <h1 class="rv d1">Ajoutez l'encaissement automatique <em>à votre offre.</em></h1>
+      <p class="lead rv d2">CMDF est le distributeur exclusif de Cashmatic en France. Nous accompagnons les éditeurs de logiciels de caisse et les revendeurs, de l'intégration technique jusqu'au SAV chez vos clients.</p>
+      <div class="hero-actions rv d3">
+        <a class="btn btn-primary" href="#contact">Devenir partenaire <span class="arr" aria-hidden="true">→</span></a>
+        <a class="link" href="#api">Découvrir l'API</a>
+      </div>
+      <p class="hero-note rv d3"><span>API REST documentée</span><span>Stock et SAV en France</span></p>
+    </div>
+    <div class="rv d2">
+      <div class="beam" id="beam" role="img" aria-label="Schéma : les logiciels de caisse Clyo Systems, JDC, Softavera et Splash 360 pilotent le monnayeur Cashmatic, qui valide le paiement dans la caisse.">
+        <svg class="beam-svg" aria-hidden="true"></svg>
+        <div class="beam-src">
+          <div class="bnode" data-from><b>Clyo Systems</b><small>Logiciel de caisse</small></div>
+          <div class="bnode" data-from><b>JDC</b><small>Logiciel de caisse</small></div>
+          <div class="bnode" data-from><b>Softavera</b><small>Logiciel de caisse</small></div>
+          <div class="bnode" data-from><b>Splash 360</b><small>Logiciel de caisse</small></div>
+        </div>
+        <div class="bhub" data-hub><img src="assets/sp460-cutout.webp" alt="" width="358" height="520"><span class="mono">Monnayeur Cashmatic</span></div>
+        <div class="bnode bout" data-out><span class="dot-live" aria-hidden="true"></span><b>Caisse juste</b><small>Paiement validé dans votre logiciel</small></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-prof" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Deux façons de travailler ensemble</p><h2 id="t-prof" class="rv d1">Vous intégrez, ou vous revendez.</h2></div>
+      <p class="lead rv d2">Que vous développiez un logiciel de caisse ou que vous équipiez des commerces, vous avez un seul interlocuteur pour la technique, l'approvisionnement et le service.</p>
+    </div>
+    <div class="profiles">
+      <article class="profile rv">
+        <span class="mono">Éditeurs de logiciel</span>
+        <h3>Pilotez Cashmatic depuis votre logiciel.</h3>
+        <p>Votre caisse envoie le montant, le monnayeur encaisse et rend la monnaie, votre logiciel reçoit le résultat.</p>
+        <ul>
+          <li><b>API REST documentée</b><span>Échanges en JSON, authentification par jeton, collection Postman fournie.</span></li>
+          <li><b>Accompagnement technique</b><span>Un contact CMDF pendant le développement et les tests.</span></li>
+          <li><b>Validation sur le terrain</b><span>Premières installations suivies ensemble, chez vos clients.</span></li>
+          <li><b>Visibilité</b><span>Votre logiciel cité comme compatible auprès de nos clients et prospects.</span></li>
+        </ul>
+      </article>
+      <article class="profile rv d1">
+        <span class="mono">Revendeurs</span>
+        <h3>Proposez la gamme Cashmatic à vos clients.</h3>
+        <p>Monnayeurs SelfPay, bornes VisualPay et InPay pour la distribution organisée : une gamme complète pour tous les points de vente.</p>
+        <ul>
+          <li><b>Conditions revendeur</b><span>Une grille dédiée, à voir ensemble selon vos volumes.</span></li>
+          <li><b>Stock et pièces en France</b><span>Livraison rapide des machines et des pièces détachées.</span></li>
+          <li><b>Formation de vos équipes</b><span>Installation, paramétrage et premier niveau de maintenance.</span></li>
+          <li><b>SAV et garantie</b><span>Retours sous garantie gérés par CMDF avec le fabricant.</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section sectors-wrap" id="api" aria-labelledby="t-api">
+  <div class="wrap api">
+    <div>
+      <p class="eyebrow rv">API Cashmatic</p>
+      <h2 id="t-api" class="rv d1">Une API locale, simple à intégrer.</h2>
+      <p class="lead rv d2">La machine expose une API REST sur le réseau local, en HTTPS. Votre logiciel s'authentifie, lance les opérations et lit les résultats en JSON.</p>
+      <ul class="api-feats rv d2">
+        <li>Paiement : démarrer, valider, annuler</li>
+        <li>Rendu et retrait de monnaie</li>
+        <li>Remplissage et dépôt</li>
+        <li>Vidage pièces, billets, coffre</li>
+        <li>Alignement du fond de caisse</li>
+        <li>Clôture de caisse</li>
+        <li>Niveaux par coupure en temps réel</li>
+        <li>Historique des transactions</li>
+        <li>Coupures acceptées et seuils</li>
+        <li>État et ouverture de porte</li>
+      </ul>
+      <p class="rv d3" style="margin-top:28px"><a class="btn btn-primary" href="#contact">Demander la documentation <span class="arr" aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="rv d2">
+      <div class="code" role="img" aria-label="Extrait de la liste des fonctions de l'API Cashmatic">
+        <div class="c-head"><span>Cashmatic API</span><span>v1.0.0.6</span></div>
+        <span class="g"># Authentification</span>
+        <span class="m">POST</span> <span class="p">/api/user/Login</span><br>
+        <span class="m">POST</span> <span class="p">/api/user/RenewToken</span>
+        <span class="g"># Paiement</span>
+        <span class="m">POST</span> <span class="p">/api/transaction/StartPayment</span><br>
+        <span class="m">POST</span> <span class="p">/api/transaction/CommitPayment</span><br>
+        <span class="m">POST</span> <span class="p">/api/transaction/CancelPayment</span>
+        <span class="g"># Opérations de caisse</span>
+        <span class="m">POST</span> <span class="p">/api/transaction/StartRefill</span><br>
+        <span class="m">POST</span> <span class="p">/api/transaction/StartWithdrawal</span><br>
+        <span class="m">POST</span> <span class="p">/api/transaction/StartRegisterClosure</span>
+        <span class="g"># État de la machine</span>
+        <span class="m">POST</span> <span class="p">/api/device/AllLevels</span><br>
+        <span class="m">POST</span> <span class="p">/api/device/ActiveTransaction</span><br>
+        <span class="m">POST</span> <span class="p">/api/report/GetTransactions</span>
+      </div>
+      <p class="api-note">Extrait. La documentation complète et la collection Postman sont fournies aux partenaires.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-steps">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Démarrer</p><h2 id="t-steps" class="rv d1">Quatre étapes pour lancer le partenariat.</h2></div>
+      <p class="lead rv d2">On avance à votre rythme, avec un interlocuteur unique du premier échange aux premières installations.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><span class="mono">Étape 1</span><h3>Premier échange</h3><p>Votre logiciel ou votre réseau, vos clients, vos objectifs.</p></li>
+      <li class="step rv d1"><span class="mono">Étape 2</span><h3>Documentation</h3><p>Accès à l'API, à la collection Postman et à nos conditions.</p></li>
+      <li class="step rv d2"><span class="mono">Étape 3</span><h3>Intégration et tests</h3><p>Développement accompagné, puis validation avec une machine réelle.</p></li>
+      <li class="step rv d3"><span class="mono">Étape 4</span><h3>Premières installations</h3><p>On installe ensemble chez vos premiers clients, puis vous êtes autonome.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section sectors-wrap" aria-labelledby="t-who">
+  <div class="wrap integ">
+    <div>
+      <p class="eyebrow rv">Ils travaillent avec nous</p>
+      <h2 id="t-who" class="rv d1">Des éditeurs déjà compatibles.</h2>
+      <p class="lead rv d2">Plusieurs logiciels de caisse du marché pilotent déjà nos monnayeurs. Le vôtre peut rejoindre la liste.</p>
+      <div class="chips rv d3"><span>Clyo Systems</span><span>JDC</span><span>Softavera</span><span>Soft Caisse</span><span>Lunicco</span><span>Splash 360</span></div>
+    </div>
+    <div>
+      <p class="eyebrow rv">Ce que vous proposez à vos clients</p>
+      <div class="p-range rv d2" style="grid-template-columns:1fr 1fr;margin-top:20px">
+        <a href="selfpay.html"><span class="mono">Monnayeurs</span><b>SelfPay</b><span>460 · 860 · 1060</span></a>
+        <a href="visualpay.html"><span class="mono">Bornes</span><b>VisualPay</b><span>VP22 · VP27 · VP32 · Double Sided</span></a>
+        <a href="index.html#gamme"><span class="mono">Distribution organisée</span><b>InPay</b><span>Sous le comptoir, gros volumes</span></a>
+        <a href="index.html#appli"><span class="mono">Application</span><b>MyCashmatic</b><span>Suivi à distance pour vos clients</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sectors-wrap" id="contact" aria-labelledby="t-contact">
+  <div class="wrap contact">
+    <div>
+      <p class="eyebrow rv">Contact</p>
+      <h2 id="t-contact" class="rv d1">Devenons partenaires.</h2>
+      <p class="lead rv d2">Présentez-nous votre logiciel ou votre réseau de clients. On revient vers vous sous 24 heures avec la documentation et les prochaines étapes.</p>
+      <div class="direct rv d3">
+        <a href="tel:+33765745060"><span><small>Téléphone</small><b class="mono">07 65 74 50 60</b></span><span aria-hidden="true">→</span></a>
+        <a href="mailto:contact@cashmatic-france.fr"><span><small>E-mail</small><b>contact@cashmatic-france.fr</b></span><span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <form id="quote" class="rv d2" novalidate>
+      <span class="beam-border" aria-hidden="true"></span>
+      <div class="row">
+        <div class="field"><label for="f-name">Nom et prénom</label><input id="f-name" name="nom" autocomplete="name" required><span class="err">Indiquez votre nom.</span></div>
+        <div class="field"><label for="f-company">Société</label><input id="f-company" name="commerce" autocomplete="organization" required><span class="err">Indiquez le nom de votre société.</span></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err">Cette adresse e-mail n'est pas valide.</span></div>
+        <div class="field"><label for="f-tel">Téléphone <i>(facultatif)</i></label><input id="f-tel" name="telephone" type="tel" autocomplete="tel" pattern="[0-9 +().-]{9,}"><span class="err">Ce numéro n'est pas valide.</span></div>
+      </div>
+      <div class="field"><label for="f-model">Vous êtes</label>
+        <select id="f-model" name="profil">
+          <option>Éditeur de logiciel de caisse</option>
+          <option>Revendeur</option>
+          <option>Intégrateur</option>
+          <option>Autre</option>
+        </select></div>
+      <div class="field"><label for="f-msg">Votre projet <i>(facultatif)</i></label><textarea id="f-msg" name="message" placeholder="Votre logiciel, votre réseau, le nombre de points de vente équipables…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
+      <p class="form-note">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html#donnees">Données personnelles</a></p>
+      <p class="form-ok" role="status" id="form-ok">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : il ne reste qu'à l'envoyer.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38"><span><b style="color:var(--ink)">CMDF</b><small>Cashmatic Distribution France</small></span></a>
+        <p style="margin-top:16px;max-width:36ch">Distributeur exclusif des solutions d'encaissement automatique Cashmatic en France. Vente, installation et maintenance.</p>
+        <address style="font-style:normal;margin-top:14px">61 avenue du Général Michel Bizot<br>75012 Paris</address>
+      </div>
+      <div><p class="foot-h">La gamme</p><ul><li><a href="selfpay.html">SelfPay</a></li><li><a href="visualpay.html">VisualPay</a></li><li><a href="index.html#gamme">InPay</a></li><li><a href="https://cashmatic-france.fr/financement/">Financement</a></li></ul></div>
+      <div><p class="foot-h">CMDF</p><ul><li><a href="https://cashmatic-france.fr/lentreprise/">L'entreprise</a></li><li><a href="https://cashmatic-france.fr/nos-realisations/">Réalisations</a></li><li><a href="partenaires.html">Partenaires</a></li><li><a href="#contact">Contact</a></li><li><a href="tel:+33765745060" class="mono">07 65 74 50 60</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="y">2026</span> CMDF — Cashmatic Distribution France</span>
+      <nav aria-label="Liens légaux"><a href="mentions-legales.html">Mentions légales</a><a href="https://cashmatic-france.fr/conditions-generales/">Conditions générales</a><a href="mentions-legales.html#cookies">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})},4000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monnayeur automatique SelfPay 460, 860, 1060 | CMDF</title>
+<meta name="description" content="Monnayeur automatique SelfPay pour boulangerie, restaurant et commerce : rendu de monnaie automatique, faux billets refusés. SP460, SP860, SP1060. Devis 24 h.">
+<link rel="canonical" href="https://cashmatic-france.fr/selfpay.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="CMDF — Cashmatic Distribution France">
+<meta property="og:url" content="https://cashmatic-france.fr/selfpay.html">
+<meta property="og:title" content="Monnayeur automatique SelfPay 460, 860, 1060 | CMDF">
+<meta property="og:description" content="Monnayeur automatique SelfPay pour boulangerie, restaurant et commerce : rendu de monnaie automatique, faux billets refusés. SP460, SP860, SP1060. Devis 24 h.">
+<meta property="og:image" content="https://cashmatic-france.fr/assets/og-selfpay.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Monnayeur automatique SelfPay 460, 860 et 1060">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cashmatic-france.fr/assets/og-selfpay.jpg">
+<link rel="apple-touch-icon" href="assets/logo-cmdf.png">
+<link rel="icon" href="assets/logo-cmdf.png">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.crumbs{font-size:14px;color:var(--ink-3);padding-top:28px}
+.crumbs ol{list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs li+li::before{content:"/";margin-right:8px;color:var(--ink-3)}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
+.sp-hero{padding:clamp(28px,5vw,64px) 0 clamp(56px,7vw,96px)}
+.sp-hero .hero-media figure{aspect-ratio:4/4.4;background:#3A57C4}
+.sp-hero .hero-media figure img{object-position:50% 60%}
+.how{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.how li{list-style:none;padding:28px 28px 0 0}
+.how li+li{padding-left:28px;border-left:1px solid var(--line)}
+.how .mono{font-size:13px;color:var(--accent)}
+.how h3{font-size:22px;letter-spacing:-.015em;margin:10px 0 8px;line-height:1.25}
+.how p{color:var(--ink-2);max-width:34ch}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.adv div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 28px 34px;background:var(--paper)}
+.adv .mono{font-size:13px;color:var(--accent)}
+.adv h3{font-size:21px;letter-spacing:-.015em;margin:14px 0 8px;line-height:1.25}
+.adv p{color:var(--ink-2);font-size:16px}
+.mtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.mtab{font:inherit;color:var(--ink-2);background:transparent;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .2s,border-color .2s,color .2s,transform .12s var(--ease)}
+.mtab .mono{font-size:18px;font-weight:500;color:var(--ink)}
+.mtab small{font-size:13px;color:var(--ink-3)}
+.mtab:hover{border-color:var(--ink-3)}
+.mtab:active{transform:scale(.98)}
+.mtab[aria-selected="true"]{background:var(--card);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.mtab[aria-selected="true"] .mono{color:var(--accent)}
+.mpanel{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,64px);background:var(--card);border-radius:var(--r-lg);padding:clamp(16px,2vw,24px);align-items:center;box-shadow:0 1px 0 var(--line)}
+.mpanel[hidden]{display:none}
+.mpanel-img{border-radius:16px;overflow:hidden;background:#BDBDBD;aspect-ratio:636/900}
+.mpanel-img img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;animation:fadein .5s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
+.mpanel-body{padding:12px clamp(0px,2vw,24px) 12px 0;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.mpanel-body .kicker{font-family:"Geist Mono",monospace;font-size:13px;color:var(--accent)}
+.mpanel-body h3{font-size:clamp(32px,3.6vw,48px)}
+.mpanel-body p{color:var(--ink-2);max-width:52ch;font-size:18px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);width:100%;border-top:1px solid var(--line);margin:8px 0}
+.specs div{padding:12px 16px 12px 0;border-bottom:1px solid var(--line)}
+.specs div:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.specs dt{font-size:12px;color:var(--ink-3)}
+.specs dd{font-size:15px;font-weight:500;margin-top:3px;font-variant-numeric:tabular-nums}
+.spec-note{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.spec-na{font-size:15px!important;color:var(--ink-3)!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;width:100%}
+.common{border-top:1px solid var(--ink)}
+.common div{display:grid;grid-template-columns:1fr 1.6fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.common dt{color:var(--ink-3)}
+.common dd{font-weight:500}
+.sec-list{border-top:1px solid var(--line)}
+.sec-row{display:grid;grid-template-columns:1fr 1.7fr 150px;gap:32px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.sec-row h3{font-size:22px;letter-spacing:-.015em;line-height:1.25}
+.sec-row p{color:var(--ink-2)}
+.sec-row .mono{font-size:13px;color:var(--accent);white-space:nowrap;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{font-size:16px;font-weight:500;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+@media (max-width:900px){
+  .how,.adv{grid-template-columns:1fr}
+  .how li+li{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:24px}
+  .mtabs{grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:visible;scrollbar-width:none;margin:0 calc(-1*clamp(16px,4vw,40px)) 18px;padding:0 clamp(16px,4vw,40px)}
+  .mpanel{grid-template-columns:1fr}
+  .mpanel-img{aspect-ratio:4/3.6}
+  .mpanel-img img{object-position:50% 62%}
+  .sec-row{grid-template-columns:1fr;gap:6px}
+  .sec-row .mono{text-align:left}
+  .common div{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:560px){.specs{grid-template-columns:1fr 1fr}.specs div{padding-left:0!important;border-left:0!important}.specs div:nth-child(even){padding-left:14px!important;border-left:1px solid var(--line)!important}}
+</style>
+<script type="application/ld+json" id="ld-org">[{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/bar-sp460.webp", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cashmatic-france.fr/"}, {"@type": "ListItem", "position": 2, "name": "SelfPay", "item": "https://cashmatic-france.fr/selfpay.html"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38">
+      <span><b>CMDF</b><small>Cashmatic Distribution France</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="selfpay.html" aria-current="page">SelfPay</a></li>
+        <li><a href="visualpay.html">VisualPay</a></li>
+        <li><a href="index.html#appli">Application</a></li>
+        <li><a href="index.html#financement">Financement</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="tel mono" href="tel:+33765745060">07 65 74 50 60</a>
+      <a class="btn btn-primary" href="#contact">Demander un devis</a>
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="menu">
+    <a href="selfpay.html">SelfPay</a>
+    <a href="visualpay.html">VisualPay</a>
+    <a href="index.html#appli">Application</a>
+    <a href="index.html#financement">Financement</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="#contact">Demander un devis</a>
+  </div>
+</header>
+
+<main id="main">
+
+<nav class="wrap crumbs" aria-label="Fil d'Ariane"><ol><li><a href="index.html">Accueil</a></li><li><a href="index.html#gamme">La gamme</a></li><li aria-current="page">SelfPay</li></ol></nav>
+
+<section class="sp-hero hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow rv">Monnayeurs automatiques SelfPay</p>
+      <h1 class="rv d1">Le monnayeur qui <em>sécurise votre comptoir.</em></h1>
+      <p class="lead rv d2">Monnayeur automatique et caisse automatique à la fois, SelfPay se pose à côté de votre caisse et prend en charge les espèces : il vérifie chaque billet, encaisse et rend la monnaie exacte. Trois modèles, du comptoir de boulangerie à la grande surface.</p>
+      <div class="hero-actions rv d3">
+        <a class="btn btn-primary" href="#contact">Demander un devis <span class="arr" aria-hidden="true">→</span></a>
+        <a class="link" href="#modeles">Comparer les modèles</a>
+      </div>
+      <p class="hero-note rv d3"><span>Dès 5 € par jour en location</span><span>SAV sous 24 h</span></p>
+    </div>
+    <div class="hero-media rv d2">
+      <figure><img src="assets/selfpay-family.webp" srcset="assets/selfpay-family-800.webp 800w, assets/selfpay-family.webp 1100w" sizes="(max-width: 900px) 92vw, 600px" alt="Quatre monnayeurs SelfPay sur des socles bleus" width="1100" height="1556" fetchpriority="high"></figure>
+      <div class="tag tag-a"><strong>Gamme SelfPay</strong><span class="mono">SP460 · SP860 · SP1060</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Fonctionnement</p><h2 id="t-how" class="rv d1">Trois gestes au comptoir.</h2></div>
+      <p class="lead rv d2">SelfPay est raccordé à votre logiciel de caisse. Le montant s'affiche automatiquement, vous n'avez rien à ressaisir.</p>
+    </div>
+    <ol class="how">
+      <li class="rv"><span class="mono">01</span><h3>Vous saisissez la vente</h3><p>Sur votre caisse, comme d'habitude. Le montant part directement vers le monnayeur.</p></li>
+      <li class="rv d1"><span class="mono">02</span><h3>Le client paie</h3><p>Il insère ses billets et ses pièces. Chaque billet est contrôlé à l'entrée.</p></li>
+      <li class="rv d2"><span class="mono">03</span><h3>La monnaie est rendue</h3><p>SelfPay rend la somme exacte et valide le paiement dans votre logiciel.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section sectors-wrap" aria-labelledby="t-adv">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Avantages</p><h2 id="t-adv" class="rv d1">Fini les erreurs de caisse.</h2></div>
+      <p class="lead rv d2">L'encaissement automatique change le quotidien au comptoir dès le premier jour.</p>
+    </div>
+    <div class="adv">
+      <div class="rv"><span class="mono">01</span><h3>Aucune erreur de rendu</h3><p>La machine compte chaque pièce. Ce qui est encaissé correspond à ce qui est vendu.</p></div>
+      <div class="rv d1"><span class="mono">02</span><h3>Faux billets refusés</h3><p>Un billet suspect est rendu au client. Il n'entre jamais dans votre fond de caisse.</p></div>
+      <div class="rv d2"><span class="mono">03</span><h3>Hygiène renforcée</h3><p>Plus d'espèces de main en main entre vos équipes et la marchandise.</p></div>
+      <div class="rv"><span class="mono">04</span><h3>Caisse juste le soir</h3><p>Le comptage est déjà fait. La clôture prend quelques minutes.</p></div>
+      <div class="rv d1"><span class="mono">05</span><h3>Moins de risque de vol</h3><p>L'argent reste dans la machine, pas dans un tiroir ouvert au comptoir.</p></div>
+      <div class="rv d2"><span class="mono">06</span><h3>Suivi à distance</h3><p>Avec l'application MyCashmatic, vous voyez vos niveaux d'espèces et recevez une alerte à chaque retrait. <a class="link" href="index.html#appli">En savoir plus</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modeles" aria-labelledby="t-models">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Les modèles</p><h2 id="t-models" class="rv d1">Trois modèles, un pour chaque volume.</h2></div>
+      <p class="lead rv d2">Le choix se fait surtout sur le nombre de ventes en espèces par jour : jusqu'à 250 pour le 460, jusqu'à 450 pour le 860, au-delà pour le 1060. On vous conseille gratuitement.</p>
+    </div>
+    <div class="mtabs rv" role="tablist" aria-label="Modèles SelfPay"><button class="mtab" role="tab" id="tab-460" aria-controls="panel-460" aria-selected="true" tabindex="0"><span class="mono">SP460</span><small>Le compact</small></button><button class="mtab" role="tab" id="tab-860" aria-controls="panel-860" aria-selected="false" tabindex="-1"><span class="mono">SP860</span><small>Le rapide</small></button><button class="mtab" role="tab" id="tab-1060" aria-controls="panel-1060" aria-selected="false" tabindex="-1"><span class="mono">SP1060</span><small>Le plus robuste</small></button></div>
+    <div class="rv d1">
+      <div class="mpanel" role="tabpanel" id="panel-460" aria-labelledby="tab-460">
+        <figure class="mpanel-img"><img src="assets/sp460-studio.webp" alt="Monnayeur SelfPay 460" width="636" height="900" loading="lazy"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">Le compact</span>
+          <h3>SelfPay 460</h3>
+          <p>Le plus compact de la gamme, pour les comptoirs où la place compte. Il rend toutes les dénominations de billets et de pièces acceptées.</p>
+          <div class="models"><span>Boulangeries</span><span>Bars</span><span>Restaurants</span><span>Tabac-presse</span></div>
+          <dl class="specs"><div><dt>Dimensions</dt><dd>33,4 × 42,1 × 48,4 cm</dd></div><div><dt>Poids</dt><dd>30,8 kg</dd></div><div><dt>Cadence</dt><dd>4 paiements/min</dd></div><div><dt>Volume conseillé</dt><dd>Jusqu'à 250 ventes/jour</dd></div><div><dt>Recyclage</dt><dd>70 billets · 1 500 pièces</dd></div><div><dt>Coffre billets</dt><dd>500 billets (1 000 en option)</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="SelfPay 460">Devis pour le SelfPay 460 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="mpanel" role="tabpanel" id="panel-860" aria-labelledby="tab-860" hidden>
+        <figure class="mpanel-img"><img src="assets/sp860-studio.webp" alt="Monnayeur SelfPay 860" width="636" height="900" loading="lazy"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">Le rapide</span>
+          <h3>SelfPay 860</h3>
+          <p>Deux fois plus rapide que le 460, avec un recyclage de billets plus large pour les commerces à fort passage.</p>
+          <div class="models"><span>Supérettes</span><span>Restauration rapide</span><span>Pharmacies</span><span>CHR</span></div>
+          <dl class="specs"><div><dt>Dimensions</dt><dd>34 × 37,2 × 57,9 cm</dd></div><div><dt>Poids</dt><dd>36,9 kg</dd></div><div><dt>Cadence</dt><dd>8 paiements/min</dd></div><div><dt>Volume conseillé</dt><dd>Jusqu'à 450 ventes/jour</dd></div><div><dt>Recyclage</dt><dd>120 billets · 1 500 pièces</dd></div><div><dt>Coffre billets</dt><dd>400 billets</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="SelfPay 860">Devis pour le SelfPay 860 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="mpanel" role="tabpanel" id="panel-1060" aria-labelledby="tab-1060" hidden>
+        <figure class="mpanel-img"><img src="assets/sp1060-studio.webp" alt="Monnayeur SelfPay 1060" width="636" height="900" loading="lazy"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">Le plus robuste</span>
+          <h3>SelfPay 1060</h3>
+          <p>Le haut de gamme pour les plus gros volumes : la plus grande capacité de recyclage et le plus grand coffre de la gamme.</p>
+          <div class="models"><span>Grandes surfaces</span><span>Retail multi-caisses</span><span>Pharmacies</span></div>
+          <dl class="specs"><div><dt>Dimensions</dt><dd>39,6 × 40,1 × 54,8 cm</dd></div><div><dt>Poids</dt><dd>52 kg</dd></div><div><dt>Cadence</dt><dd>10 paiements/min</dd></div><div><dt>Volume conseillé</dt><dd>Plus de 450 ventes/jour</dd></div><div><dt>Recyclage</dt><dd>180 billets · 1 500 pièces</dd></div><div><dt>Coffre billets</dt><dd>600 billets</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="SelfPay 1060">Devis pour le SelfPay 1060 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="spec-note">Dimensions : largeur × profondeur × hauteur. Sources : plans Cashmatic (mars 2025) et catalogue Cashmatic 2026.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-common" style="padding-top:0">
+  <div class="wrap integ">
+    <div>
+      <p class="eyebrow rv">Caractéristiques communes</p>
+      <h2 id="t-common" class="rv d1">Ce que font tous les SelfPay.</h2>
+      <p class="lead rv d2">Quel que soit le modèle, vous retrouvez la même technologie Cashmatic et le même accompagnement CMDF.</p>
+    </div>
+    <dl class="common rv d2">
+      <div><dt>Pièces acceptées</dt><dd>0,01 € à 2 €, toutes rendues</dd></div>
+      <div><dt>Billets acceptés</dt><dd>5 € à 500 € (rendus : toutes les coupures sur le 460, jusqu'à 4 coupures sur le 860 et le 1060)</dd></div>
+      <div><dt>Contrôle des billets</dt><dd>Chaque billet vérifié à l'entrée, faux billets rendus</dd></div>
+      <div><dt>Écran</dt><dd>Tactile 7 pouces</dd></div>
+      <div><dt>Connexion</dt><dd>Ethernet (RJ45), onduleur recommandé</dd></div>
+      <div><dt>Alimentation</dt><dd>100-240 V, utilisation entre 10 et 35 °C</dd></div>
+      <div><dt>Raccordement</dt><dd>À votre logiciel de caisse, géré par CMDF</dd></div>
+      <div><dt>Supports</dt><dd>Pied fixe, module Coinbox, meuble mobile à roulettes bas ou haut</dd></div>
+      <div><dt>Application</dt><dd>MyCashmatic : niveaux, alertes et historique à distance</dd></div>
+      <div><dt>SAV</dt><dd>Intervention sous 24 h, pièces en stock en France</dd></div>
+      <div><dt>Financement</dt><dd>Location dès 5 € par jour, crédit-bail ou achat</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section sectors-wrap" aria-labelledby="t-sect">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Par secteur</p><h2 id="t-sect" class="rv d1">Pourquoi ils ont choisi SelfPay.</h2></div>
+      <p class="lead rv d2">Chaque métier a ses contraintes. Voici le modèle que nous recommandons le plus souvent.</p>
+    </div>
+    <div class="sec-list">
+      <div class="sec-row rv"><h3>Boulangeries et pâtisseries</h3><p>Flux rapide aux heures de pointe, hygiène alimentaire, encaissement précis même en période chargée.</p><span class="mono">SP460</span></div>
+      <div class="sec-row rv"><h3>Restaurants et restauration rapide</h3><p>Service rapide, pas de temps perdu à compter la monnaie, tickets moyens variés.</p><span class="mono">SP460 · SP860</span></div>
+      <div class="sec-row rv"><h3>Cafés, hôtels, restaurants</h3><p>Grosses coupures fréquentes, besoin d'un rendu rapide au comptoir.</p><span class="mono">SP860</span></div>
+      <div class="sec-row rv"><h3>Pharmacies</h3><p>Confidentialité du paiement, hygiène et précision absolue.</p><span class="mono">SP860 · SP1060</span></div>
+      <div class="sec-row rv"><h3>Tabac et presse</h3><p>Flux constant, petits montants et billets mélangés.</p><span class="mono">SP460</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-soft">
+  <div class="wrap integ">
+    <div>
+      <p class="eyebrow rv">Intégration</p>
+      <h2 id="t-soft" class="rv d1">Compatible avec votre logiciel de caisse.</h2>
+      <p class="lead rv d2">SelfPay se raccorde aux principaux logiciels du marché. CMDF gère l'intégration technique de A à Z : vous n'avez rien à configurer.</p>
+      <div class="chips rv d3"><span>Clyo Systems</span><span>JDC</span><span>Softavera</span><span>Soft Caisse</span><span>Lunicco</span><span>Splash 360</span></div>
+    </div>
+    <figure class="benefits-media rv d2" style="position:relative;top:0"><img src="assets/sp1060-bar.webp" srcset="assets/sp1060-bar-800.webp 800w, assets/sp1060-bar.webp 1200w" sizes="(max-width: 900px) 92vw, 600px" alt="SelfPay 1060 à côté d'une caisse tactile" width="1200" height="1200" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="section sectors-wrap" id="contact" aria-labelledby="t-contact">
+  <div class="wrap contact">
+    <div>
+      <p class="eyebrow rv">Contact</p>
+      <h2 id="t-contact" class="rv d1">Quel SelfPay pour votre comptoir&nbsp;?</h2>
+      <p class="lead rv d2">Nos conseillers regardent votre volume d'encaissement et vous recommandent le bon modèle. Devis personnalisé sous 24 heures, sans engagement. Démonstration possible sur place.</p>
+      <div class="direct rv d3">
+        <a href="tel:+33765745060"><span><small>Téléphone</small><b class="mono">07 65 74 50 60</b></span><span aria-hidden="true">→</span></a>
+        <a href="mailto:contact@cashmatic-france.fr"><span><small>E-mail</small><b>contact@cashmatic-france.fr</b></span><span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <form id="quote" class="rv d2" novalidate>
+      <span class="beam-border" aria-hidden="true"></span>
+      <div class="row">
+        <div class="field"><label for="f-name">Nom et prénom</label><input id="f-name" name="nom" autocomplete="name" required><span class="err">Indiquez votre nom.</span></div>
+        <div class="field"><label for="f-company">Commerce</label><input id="f-company" name="commerce" autocomplete="organization" required><span class="err">Indiquez le nom de votre commerce.</span></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err">Cette adresse e-mail n'est pas valide.</span></div>
+        <div class="field"><label for="f-tel">Téléphone <i>(facultatif)</i></label><input id="f-tel" name="telephone" type="tel" autocomplete="tel" pattern="[0-9 +().-]{9,}"><span class="err">Ce numéro n'est pas valide.</span></div>
+      </div>
+      <div class="field"><label for="f-sector">Activité</label>
+        <select id="f-sector" name="activite" required>
+          <option value="">Choisir…</option>
+          <option>Boulangerie, pâtisserie</option>
+          <option>Restaurant, CHR</option>
+          <option>Restauration rapide</option>
+          <option>Parc de loisirs</option>
+          <option>Grande distribution</option>
+          <option>Éditeur ou revendeur</option>
+          <option>Autre</option>
+        </select><span class="err">Choisissez votre activité.</span></div>
+      <div class="field"><label for="f-model">Modèle qui vous intéresse <i>(facultatif)</i></label>
+        <select id="f-model" name="modele">
+          <option value="">Je ne sais pas encore</option>
+          <option>SelfPay 460</option><option>SelfPay 860</option><option>SelfPay 1060</option>
+        </select></div>
+      <div class="field"><label for="f-msg">Votre projet <i>(facultatif)</i></label><textarea id="f-msg" name="message" placeholder="Nombre de caisses, logiciel utilisé, délai souhaité…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
+      <p class="form-note">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html#donnees">Données personnelles</a></p>
+      <p class="form-ok" role="status" id="form-ok">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : il ne reste qu'à l'envoyer.</p>
+    </form>
+  </div>
+</section>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProductGroup", "name": "Cashmatic SelfPay", "brand": {"@type": "Brand", "name": "Cashmatic"}, "description": "Gamme de monnayeurs automatiques SelfPay : SP460, SP860, SP1060.", "hasVariant": [{"@type": "Product", "name": "SelfPay 460", "description": "Le plus compact de la gamme, pour les comptoirs où la place compte. Il rend toutes les dénominations de billets et de pièces acceptées.", "weight": {"@type": "QuantitativeValue", "value": 30.8, "unitCode": "KGM"}}, {"@type": "Product", "name": "SelfPay 860", "description": "Deux fois plus rapide que le 460, avec un recyclage de billets plus large pour les commerces à fort passage.", "weight": {"@type": "QuantitativeValue", "value": 36.9, "unitCode": "KGM"}}, {"@type": "Product", "name": "SelfPay 1060", "description": "Le haut de gamme pour les plus gros volumes : la plus grande capacité de recyclage et le plus grand coffre de la gamme.", "weight": {"@type": "QuantitativeValue", "value": 52.0, "unitCode": "KGM"}}]}</script>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38"><span><b style="color:var(--ink)">CMDF</b><small>Cashmatic Distribution France</small></span></a>
+        <p style="margin-top:16px;max-width:36ch">Distributeur exclusif des solutions d'encaissement automatique Cashmatic en France. Vente, installation et maintenance.</p>
+        <address style="font-style:normal;margin-top:14px">61 avenue du Général Michel Bizot<br>75012 Paris</address>
+      </div>
+      <div><p class="foot-h">La gamme</p><ul><li><a href="selfpay.html">SelfPay</a></li><li><a href="visualpay.html">VisualPay</a></li><li><a href="index.html#gamme">InPay</a></li><li><a href="https://cashmatic-france.fr/financement/">Financement</a></li></ul></div>
+      <div><p class="foot-h">CMDF</p><ul><li><a href="https://cashmatic-france.fr/lentreprise/">L'entreprise</a></li><li><a href="https://cashmatic-france.fr/nos-realisations/">Réalisations</a></li><li><a href="partenaires.html">Partenaires</a></li><li><a href="#contact">Contact</a></li><li><a href="tel:+33765745060" class="mono">07 65 74 50 60</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="y">2026</span> CMDF — Cashmatic Distribution France</span>
+      <nav aria-label="Liens légaux"><a href="mentions-legales.html">Mentions légales</a><a href="https://cashmatic-france.fr/conditions-generales/">Conditions générales</a><a href="mentions-legales.html#cookies">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.mtab'));
+  function select(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true)}
+    });
+  });
+  var sel=document.getElementById('f-model');
+  document.querySelectorAll('[data-model]').forEach(function(a){a.addEventListener('click',function(){if(sel)sel.value=a.dataset.model})});
+})();
+</script>
+</body>
+</html>

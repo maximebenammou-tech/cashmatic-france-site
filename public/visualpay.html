@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})},4000)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Borne de commande et de paiement VisualPay | CMDF</title>
+<meta name="description" content="Borne de commande et de paiement VisualPay : carte et espèces, menu en images, moins d'attente. VP22, VP27, VP32, Double Sided. Installation et SAV en France.">
+<link rel="canonical" href="https://cashmatic-france.fr/visualpay.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="CMDF — Cashmatic Distribution France">
+<meta property="og:url" content="https://cashmatic-france.fr/visualpay.html">
+<meta property="og:title" content="Borne de commande et de paiement VisualPay | CMDF">
+<meta property="og:description" content="Borne de commande et de paiement VisualPay : carte et espèces, menu en images, moins d'attente. VP22, VP27, VP32, Double Sided. Installation et SAV en France.">
+<meta property="og:image" content="https://cashmatic-france.fr/assets/og-visualpay.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bornes de commande et de paiement VisualPay">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cashmatic-france.fr/assets/og-visualpay.jpg">
+<link rel="apple-touch-icon" href="assets/logo-cmdf.png">
+<link rel="icon" href="assets/logo-cmdf.png">
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.crumbs{font-size:14px;color:var(--ink-3);padding-top:28px}
+.crumbs ol{list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs li+li::before{content:"/";margin-right:8px;color:var(--ink-3)}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
+.sp-hero{padding:clamp(28px,5vw,64px) 0 clamp(56px,7vw,96px)}
+.sp-hero .hero-media figure{aspect-ratio:4/4.4;background:#3A57C4}
+.sp-hero .hero-media figure img{object-position:50% 60%}
+.how{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.how li{list-style:none;padding:28px 28px 0 0}
+.how li+li{padding-left:28px;border-left:1px solid var(--line)}
+.how .mono{font-size:13px;color:var(--accent)}
+.how h3{font-size:22px;letter-spacing:-.015em;margin:10px 0 8px;line-height:1.25}
+.how p{color:var(--ink-2);max-width:34ch}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.adv div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 28px 34px;background:var(--paper)}
+.adv .mono{font-size:13px;color:var(--accent)}
+.adv h3{font-size:21px;letter-spacing:-.015em;margin:14px 0 8px;line-height:1.25}
+.adv p{color:var(--ink-2);font-size:16px}
+.mtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.mtab{font:inherit;color:var(--ink-2);background:transparent;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .2s,border-color .2s,color .2s,transform .12s var(--ease)}
+.mtab .mono{font-size:18px;font-weight:500;color:var(--ink)}
+.mtab small{font-size:13px;color:var(--ink-3)}
+.mtab:hover{border-color:var(--ink-3)}
+.mtab:active{transform:scale(.98)}
+.mtab[aria-selected="true"]{background:var(--card);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.mtab[aria-selected="true"] .mono{color:var(--accent)}
+.mpanel{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,64px);background:var(--card);border-radius:var(--r-lg);padding:clamp(16px,2vw,24px);align-items:center;box-shadow:0 1px 0 var(--line)}
+.mpanel[hidden]{display:none}
+.mpanel-img{border-radius:16px;overflow:hidden;background:#BDBDBD;aspect-ratio:636/900}
+.mpanel-img img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;animation:fadein .5s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:none}}
+.mpanel-body{padding:12px clamp(0px,2vw,24px) 12px 0;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.mpanel-body .kicker{font-family:"Geist Mono",monospace;font-size:13px;color:var(--accent)}
+.mpanel-body h3{font-size:clamp(32px,3.6vw,48px)}
+.mpanel-body p{color:var(--ink-2);max-width:52ch;font-size:18px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);width:100%;border-top:1px solid var(--line);margin:8px 0}
+.specs div{padding:12px 16px 12px 0;border-bottom:1px solid var(--line)}
+.specs div:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.specs dt{font-size:12px;color:var(--ink-3)}
+.specs dd{font-size:15px;font-weight:500;margin-top:3px;font-variant-numeric:tabular-nums}
+.spec-note{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.spec-na{font-size:15px!important;color:var(--ink-3)!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;width:100%}
+.common{border-top:1px solid var(--ink)}
+.common div{display:grid;grid-template-columns:1fr 1.6fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.common dt{color:var(--ink-3)}
+.common dd{font-weight:500}
+.sec-list{border-top:1px solid var(--line)}
+.sec-row{display:grid;grid-template-columns:1fr 1.7fr 150px;gap:32px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.sec-row h3{font-size:22px;letter-spacing:-.015em;line-height:1.25}
+.sec-row p{color:var(--ink-2)}
+.sec-row .mono{font-size:13px;color:var(--accent);white-space:nowrap;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips span{font-size:16px;font-weight:500;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+@media (max-width:900px){
+  .how,.adv{grid-template-columns:1fr}
+  .how li+li{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:24px}
+  .mtabs{grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:visible;scrollbar-width:none;margin:0 calc(-1*clamp(16px,4vw,40px)) 18px;padding:0 clamp(16px,4vw,40px)}
+  .mpanel{grid-template-columns:1fr}
+  .mpanel-img{aspect-ratio:4/3.6}
+  .mpanel-img img{object-position:50% 62%}
+  .sec-row{grid-template-columns:1fr;gap:6px}
+  .sec-row .mono{text-align:left}
+  .common div{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:560px){.specs{grid-template-columns:1fr 1fr}.specs div{padding-left:0!important;border-left:0!important}.specs div:nth-child(even){padding-left:14px!important;border-left:1px solid var(--line)!important}}
+
+.vp-hero .hero-media figure{aspect-ratio:4/3.8;background:var(--paper-2)}
+
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mode{background:var(--card);border-radius:var(--r-lg);padding:clamp(24px,3vw,36px);box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:12px}
+.mode .mono{font-size:13px;color:var(--accent)}
+.mode h3{font-size:clamp(24px,2.4vw,30px)}
+.mode p{color:var(--ink-2)}
+.mode ul{list-style:none;display:grid;gap:6px;margin-top:6px;color:var(--ink-2);font-size:15px}
+.mode li{display:flex;gap:10px}.mode li::before{content:"";flex:none;width:12px;height:1px;background:var(--ink-3);margin-top:12px}
+.mode.hybrid{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line))}
+.mounts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.mounts li{list-style:none;padding:26px 24px 0 0}
+.mounts li+li{padding-left:24px;border-left:1px solid var(--line)}
+.mounts .mono{font-size:13px;color:var(--accent)}
+.mounts h3{font-size:21px;letter-spacing:-.015em;margin:10px 0 8px;line-height:1.25}
+.mounts p{color:var(--ink-2);font-size:15px}
+.mtabs{grid-template-columns:repeat(4,1fr)!important}
+@media (min-width:901px){.steps-3{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.modes,.mounts{grid-template-columns:1fr}.mounts li+li{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:22px}.mtabs{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+<script type="application/ld+json" id="ld-org">[{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/bar-sp460.webp", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cashmatic-france.fr/"}, {"@type": "ListItem", "position": 2, "name": "VisualPay", "item": "https://cashmatic-france.fr/visualpay.html"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38">
+      <span><b>CMDF</b><small>Cashmatic Distribution France</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="selfpay.html">SelfPay</a></li>
+        <li><a href="visualpay.html" aria-current="page">VisualPay</a></li>
+        <li><a href="index.html#appli">Application</a></li>
+        <li><a href="index.html#financement">Financement</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="tel mono" href="tel:+33765745060">07 65 74 50 60</a>
+      <a class="btn btn-primary" href="#contact">Demander un devis</a>
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="menu">
+    <a href="selfpay.html">SelfPay</a>
+    <a href="visualpay.html">VisualPay</a>
+    <a href="index.html#appli">Application</a>
+    <a href="index.html#financement">Financement</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="#contact">Demander un devis</a>
+  </div>
+</header>
+
+<main id="main">
+
+<nav class="wrap crumbs" aria-label="Fil d'Ariane"><ol><li><a href="index.html">Accueil</a></li><li><a href="index.html#gamme">La gamme</a></li><li aria-current="page">VisualPay</li></ol></nav>
+
+<section class="vp-hero sp-hero hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow rv">Bornes de commande et de paiement VisualPay</p>
+      <h1 class="rv d1">Vos clients commandent et paient <em>en toute autonomie.</em></h1>
+      <p class="lead rv d2">Avec une borne de commande et de paiement VisualPay, le client choisit sur l'écran, commande et règle par carte ou en espèces, sans passer par la caisse. Vos équipes se concentrent sur la préparation et le service.</p>
+      <div class="hero-actions rv d3">
+        <a class="btn btn-primary" href="#contact">Demander un devis <span class="arr" aria-hidden="true">→</span></a>
+        <a class="link" href="#modeles">Voir les bornes</a>
+      </div>
+      <p class="hero-note rv d3"><span>Carte et espèces</span><span>Installation et SAV partout en France</span></p>
+    </div>
+    <div class="hero-media rv d2">
+      <figure><img src="assets/fastfood-vp32.webp" srcset="assets/fastfood-vp32-800.webp 800w, assets/fastfood-vp32.webp 1600w" sizes="(max-width: 900px) 92vw, 600px" alt="Deux bornes de commande VisualPay 32 dans un restaurant rapide" width="1600" height="1124" fetchpriority="high" style="object-position:30% 50%"></figure>
+      <div class="tag tag-a"><strong>VisualPay 32</strong><span class="mono">Restauration rapide · hybride</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-modes" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Deux versions</p><h2 id="t-modes" class="rv d1">Carte seule, ou carte et espèces.</h2></div>
+      <p class="lead rv d2">Chaque borne existe en version électronique. Les VP27, VP32 et la Double Sided existent aussi en version hybride, avec un monnayeur SelfPay intégré au pied.</p>
+    </div>
+    <div class="modes">
+      <article class="mode rv"><span class="mono">Électronique</span><h3>Paiement par carte</h3><p>La borne prend la commande et encaisse par carte via un terminal de paiement intégré.</p><ul><li>Support TPE universel</li><li>Pose murale ou sur pied</li><li>Encombrement réduit</li></ul></article>
+      <article class="mode hybrid rv d1"><span class="mono">Hybride</span><h3>Carte et espèces</h3><p>Un monnayeur SelfPay est intégré sous l'écran : le client paie en espèces, la borne rend la monnaie exacte.</p><ul><li>Aucun client refusé faute de carte</li><li>Faux billets refusés à l'entrée</li><li>Espèces sécurisées dans la machine</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Fonctionnement</p><h2 id="t-how" class="rv d1">Trois étapes à la borne.</h2></div>
+      <p class="lead rv d2">Une borne de commande VisualPay s'utilise sans explication : le client suit l'écran, du choix au paiement.</p>
+    </div>
+    <ol class="steps steps-3">
+      <li class="step rv"><span class="mono">01</span><h3>Le client compose sa commande</h3><p>Il parcourt votre menu en images, choisit ses produits et ses options.</p></li>
+      <li class="step rv d1"><span class="mono">02</span><h3>Il paie à la borne</h3><p>Par carte sur le terminal intégré, ou en espèces avec la version hybride.</p></li>
+      <li class="step rv d2"><span class="mono">03</span><h3>La commande est transmise</h3><p>Elle arrive dans votre logiciel de caisse, et le client repart avec son ticket.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section sectors-wrap" aria-labelledby="t-adv">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Avantages</p><h2 id="t-adv" class="rv d1">Moins d'attente, plus de service.</h2></div>
+      <p class="lead rv d2">La borne prend en charge la commande et l'encaissement. Votre équipe gagne du temps pour le reste.</p>
+    </div>
+    <div class="adv">
+      <div class="rv"><span class="mono">01</span><h3>Files plus courtes</h3><p>Plusieurs clients commandent en même temps, sans attendre un vendeur.</p></div>
+      <div class="rv d1"><span class="mono">02</span><h3>Équipe libérée</h3><p>Vos vendeurs passent de la caisse à la préparation et au service.</p></div>
+      <div class="rv d2"><span class="mono">03</span><h3>Menu en images</h3><p>Grand écran Full HD : vos produits sont présentés en photos, options comprises.</p></div>
+      <div class="rv"><span class="mono">04</span><h3>Moins d'erreurs</h3><p>Le client saisit lui-même sa commande, elle part directement en préparation.</p></div>
+      <div class="rv d1"><span class="mono">05</span><h3>Tous les paiements</h3><p>Carte bancaire, et espèces avec la version hybride.</p></div>
+      <div class="rv d2"><span class="mono">06</span><h3>Connectée à vos outils</h3><p>Les API Cashmatic se raccordent à votre logiciel ou à votre ERP.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modeles" aria-labelledby="t-models">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Les bornes</p><h2 id="t-models" class="rv d1">Quatre formats pour votre espace.</h2></div>
+      <p class="lead rv d2">Du format léger au double écran, chaque borne se configure selon votre espace et votre flux de clients.</p>
+    </div>
+    <div class="mtabs rv" role="tablist" aria-label="Bornes VisualPay"><button class="mtab" role="tab" id="tab-22" aria-controls="panel-22" aria-selected="true" tabindex="0"><span class="mono">VP22</span><small>La plus légère</small></button><button class="mtab" role="tab" id="tab-27" aria-controls="panel-27" aria-selected="false" tabindex="-1"><span class="mono">VP27</span><small>Tout-en-un</small></button><button class="mtab" role="tab" id="tab-32" aria-controls="panel-32" aria-selected="false" tabindex="-1"><span class="mono">VP32</span><small>La plus élégante</small></button><button class="mtab" role="tab" id="tab-DS" aria-controls="panel-DS" aria-selected="false" tabindex="-1"><span class="mono">Double Sided</span><small>Double efficacité</small></button></div>
+    <div class="rv d1">
+      <div class="mpanel" role="tabpanel" id="panel-22" aria-labelledby="tab-22">
+        <figure class="mpanel-img"><img src="assets/vp22-studio.webp" width="900" height="900" alt="Borne VisualPay 22" loading="lazy" style="object-position:50% 45%"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">La plus légère</span>
+          <h3>VisualPay 22</h3>
+          <p>Les performances du haut de gamme dans un format plus léger et plus abordable. Une borne de commande et de paiement par carte, sur pied.</p>
+          <div class="models"><span>Restauration rapide</span><span>Cafétérias</span><span>Retail</span></div>
+          <dl class="specs"><div><dt>Écran</dt><dd>21,5 pouces Full HD</dd></div><div><dt>Luminosité</dt><dd>500 cd/m²</dd></div><div><dt>Contraste</dt><dd>3000:1</dd></div><div><dt>Hauteur sur pied</dt><dd>≈ 154 cm</dd></div><div><dt>Paiement</dt><dd>Carte bancaire</dd></div><div><dt>Pose</dt><dd>Pied fixe</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="VisualPay 22">Devis pour la VisualPay 22 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="mpanel" role="tabpanel" id="panel-27" aria-labelledby="tab-27" hidden>
+        <figure class="mpanel-img"><img src="assets/vp27-studio.webp" width="636" height="900" alt="Borne VisualPay 27" loading="lazy" style="object-position:50% 50%"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">Tout-en-un</span>
+          <h3>VisualPay 27</h3>
+          <p>Le grand écran de référence pour afficher un menu complet en photos. Disponible en version électronique ou hybride, avec un monnayeur SelfPay intégré au pied.</p>
+          <div class="models"><span>Restaurants</span><span>Cinémas</span><span>Loisirs</span></div>
+          <dl class="specs"><div><dt>Écran</dt><dd>27 pouces Full HD</dd></div><div><dt>Luminosité</dt><dd>500 cd/m²</dd></div><div><dt>Contraste</dt><dd>3000:1</dd></div><div><dt>Poids de la borne</dt><dd>38,9 kg</dd></div><div><dt>Version hybride</dt><dd>164,6 cm de haut, emprise 60 × 49 cm</dd></div><div><dt>Pose</dt><dd>Murale, pied fixe ou hybride</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="VisualPay 27">Devis pour la VisualPay 27 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="mpanel" role="tabpanel" id="panel-32" aria-labelledby="tab-32" hidden>
+        <figure class="mpanel-img"><img src="assets/vp32-studio.webp" width="900" height="900" alt="Borne VisualPay 32" loading="lazy" style="object-position:40% 50%"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">La plus élégante</span>
+          <h3>VisualPay 32</h3>
+          <p>Le plus grand écran de la gamme, pour les enseignes qui veulent un impact visuel fort. Électronique ou hybride avec SelfPay.</p>
+          <div class="models"><span>Grandes enseignes</span><span>Centres commerciaux</span><span>Parcs de loisirs</span></div>
+          <dl class="specs"><div><dt>Écran</dt><dd>31,5 pouces Full HD</dd></div><div><dt>Luminosité</dt><dd>500 cd/m²</dd></div><div><dt>Contraste</dt><dd>1000:1</dd></div><div><dt>Poids de la borne</dt><dd>43,4 kg</dd></div><div><dt>Version hybride</dt><dd>170,7 cm de haut, emprise 60 × 49 cm</dd></div><div><dt>Pose</dt><dd>Murale, pied fixe ou hybride</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="VisualPay 32">Devis pour la VisualPay 32 <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="mpanel" role="tabpanel" id="panel-DS" aria-labelledby="tab-DS" hidden>
+        <figure class="mpanel-img"><img src="assets/vp-double-sided.webp" width="900" height="1274" alt="Borne VisualPay Double Sided : deux écrans dos à dos sur un même pied" loading="lazy" style="object-position:50% 30%"></figure>
+        <div class="mpanel-body">
+          <span class="kicker">Double efficacité</span>
+          <h3>VisualPay Double Sided</h3>
+          <p>Deux écrans dos à dos sur un même pied : deux clients commandent en même temps. Pour les lignes de commande à fort débit.</p>
+          <div class="models"><span>Restauration rapide</span><span>Parcs de loisirs</span><span>Cinémas</span></div>
+          <dl class="specs"><div><dt>Écrans</dt><dd>2 × 27 ou 2 × 32 pouces</dd></div><div><dt>Hauteur 27+27</dt><dd>159 cm (169 cm hybride)</dd></div><div><dt>Hauteur 32+32</dt><dd>168 cm (178 cm hybride)</dd></div><div><dt>Poids</dt><dd>65 kg (72 kg hybride)</dd></div><div><dt>Paiement</dt><dd>Carte, ou carte + espèces</dd></div><div><dt>Pose</dt><dd>Pied central</dd></div></dl>
+          <a class="btn btn-primary" href="#contact" data-model="VisualPay Double Sided">Devis pour la VisualPay Double Sided <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="spec-note">Sources : catalogue Cashmatic 2026 et plans Cashmatic (mars 2025).</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-mount" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Installation</p><h2 id="t-mount" class="rv d1">Une pose adaptée à votre point de vente.</h2></div>
+      <p class="lead rv d2">On étudie avec vous l'emplacement et le sens de circulation de vos clients avant l'installation.</p>
+    </div>
+    <ol class="mounts">
+      <li class="rv"><span class="mono">Murale</span><h3>Gain de place</h3><p>Écran fixé au mur, recommandé à 90 cm du sol. Idéal dans les espaces étroits.</p></li>
+      <li class="rv d1"><span class="mono">Pied fixe</span><h3>Au milieu du flux</h3><p>La borne se place là où les clients arrivent, sans travaux.</p></li>
+      <li class="rv d2"><span class="mono">Hybride</span><h3>Avec SelfPay</h3><p>Écran et monnayeur réunis sur un même pied, pour accepter les espèces.</p></li>
+      <li class="rv d3"><span class="mono">Double Sided</span><h3>Deux clients à la fois</h3><p>Deux écrans dos à dos pour doubler le débit sur la même emprise.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section sectors-wrap" aria-labelledby="t-common">
+  <div class="wrap integ">
+    <div>
+      <p class="eyebrow rv">Caractéristiques communes</p>
+      <h2 id="t-common" class="rv d1">La même base pour toutes les bornes.</h2>
+      <p class="lead rv d2">Écran, ordinateur intégré et accessoires sont communs à la gamme. On adapte la configuration à votre activité.</p>
+    </div>
+    <dl class="common rv d2">
+      <div><dt>Écran</dt><dd>Tactile Full HD 1920 × 1080, 500 cd/m²</dd></div>
+      <div><dt>Ordinateur intégré</dt><dd>Intel N200 (8 Go, SSD 128 Go) ou Intel Core i3 (16 Go, SSD 256 Go)</dd></div>
+      <div><dt>Système</dt><dd>Windows 10 LTSC 2021 ou Android 12</dd></div>
+      <div><dt>Accessoires</dt><dd>Imprimante de tickets, lecteur de codes-barres, support TPE universel</dd></div>
+      <div><dt>Options</dt><dd>Lecteur RFID, switch réseau intégré, onduleur</dd></div>
+      <div><dt>Accessibilité</dt><dd>Hauteur d'usage jusqu'à 136 cm maximum pour les personnes à mobilité réduite</dd></div>
+      <div><dt>SAV</dt><dd>Intervention sous 24 h partout en France</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="t-sect">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow rv">Par secteur</p><h2 id="t-sect" class="rv d1">La bonne borne selon votre activité.</h2></div>
+      <p class="lead rv d2">Voici les configurations que nous recommandons le plus souvent.</p>
+    </div>
+    <div class="sec-list">
+      <div class="sec-row rv"><h3>Restauration rapide</h3><p>Commande et paiement en libre-service aux heures de pointe, menu en photos.</p><span class="mono">VP27 · Double Sided</span></div>
+      <div class="sec-row rv"><h3>Restaurants et cafétérias</h3><p>Prise de commande à l'entrée, l'équipe se concentre sur la cuisine et le service.</p><span class="mono">VP22 · VP27</span></div>
+      <div class="sec-row rv"><h3>Parcs de loisirs</h3><p>Entrées, forfaits et snacking en autonomie, des flux mieux répartis.</p><span class="mono">VP32 · Double Sided</span></div>
+      <div class="sec-row rv"><h3>Cinémas et salles de spectacle</h3><p>Billets, confiseries et boissons, sans attente au comptoir.</p><span class="mono">VP27 · VP32</span></div>
+      <div class="sec-row rv"><h3>Retail et centres commerciaux</h3><p>Paiement autonome pour les clients pressés, vos vendeurs restent au conseil.</p><span class="mono">VP22 · VP32</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section sectors-wrap" id="contact" aria-labelledby="t-contact">
+  <div class="wrap contact">
+    <div>
+      <p class="eyebrow rv">Contact</p>
+      <h2 id="t-contact" class="rv d1">Quelle borne pour votre point de vente&nbsp;?</h2>
+      <p class="lead rv d2">Dites-nous comment vos clients commandent aujourd'hui et ce que vous vendez. On vous recommande la configuration adaptée. Devis personnalisé sous 24 heures, sans engagement.</p>
+      <div class="direct rv d3">
+        <a href="tel:+33765745060"><span><small>Téléphone</small><b class="mono">07 65 74 50 60</b></span><span aria-hidden="true">→</span></a>
+        <a href="mailto:contact@cashmatic-france.fr"><span><small>E-mail</small><b>contact@cashmatic-france.fr</b></span><span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <form id="quote" class="rv d2" novalidate>
+      <span class="beam-border" aria-hidden="true"></span>
+      <div class="row">
+        <div class="field"><label for="f-name">Nom et prénom</label><input id="f-name" name="nom" autocomplete="name" required><span class="err">Indiquez votre nom.</span></div>
+        <div class="field"><label for="f-company">Commerce</label><input id="f-company" name="commerce" autocomplete="organization" required><span class="err">Indiquez le nom de votre commerce.</span></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err">Cette adresse e-mail n'est pas valide.</span></div>
+        <div class="field"><label for="f-tel">Téléphone <i>(facultatif)</i></label><input id="f-tel" name="telephone" type="tel" autocomplete="tel" pattern="[0-9 +().-]{9,}"><span class="err">Ce numéro n'est pas valide.</span></div>
+      </div>
+      <div class="field"><label for="f-sector">Activité</label>
+        <select id="f-sector" name="activite" required>
+          <option value="">Choisir…</option>
+          <option>Boulangerie, pâtisserie</option>
+          <option>Restaurant, CHR</option>
+          <option>Restauration rapide</option>
+          <option>Parc de loisirs</option>
+          <option>Grande distribution</option>
+          <option>Éditeur ou revendeur</option>
+          <option>Autre</option>
+        </select><span class="err">Choisissez votre activité.</span></div>
+      <div class="field"><label for="f-model">Modèle qui vous intéresse <i>(facultatif)</i></label>
+        <select id="f-model" name="modele">
+          <option value="">Je ne sais pas encore</option>
+          <option>VisualPay 22</option><option>VisualPay 27</option><option>VisualPay 32</option><option>VisualPay Double Sided</option>
+        </select></div>
+      <div class="field"><label for="f-msg">Votre projet <i>(facultatif)</i></label><textarea id="f-msg" name="message" placeholder="Nombre de bornes, emplacement, logiciel de caisse, délai souhaité…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
+      <p class="form-note">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html#donnees">Données personnelles</a></p>
+      <p class="form-ok" role="status" id="form-ok">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : il ne reste qu'à l'envoyer.</p>
+    </form>
+  </div>
+</section>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProductGroup", "name": "Cashmatic VisualPay", "brand": {"@type": "Brand", "name": "Cashmatic"}, "description": "Bornes de commande et de paiement en libre-service VisualPay : VP22, VP27, VP32 et Double Sided.", "hasVariant": [{"@type": "Product", "name": "VisualPay 22", "description": "Les performances du haut de gamme dans un format plus léger et plus abordable. Une borne de commande et de paiement par carte, sur pied."}, {"@type": "Product", "name": "VisualPay 27", "description": "Le grand écran de référence pour afficher un menu complet en photos. Disponible en version électronique ou hybride, avec un monnayeur SelfPay intégré au pied."}, {"@type": "Product", "name": "VisualPay 32", "description": "Le plus grand écran de la gamme, pour les enseignes qui veulent un impact visuel fort. Électronique ou hybride avec SelfPay."}, {"@type": "Product", "name": "VisualPay Double Sided", "description": "Deux écrans dos à dos sur un même pied : deux clients commandent en même temps. Pour les lignes de commande à fort débit."}]}</script>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo-cmdf-96.webp" alt="" width="38" height="38"><span><b style="color:var(--ink)">CMDF</b><small>Cashmatic Distribution France</small></span></a>
+        <p style="margin-top:16px;max-width:36ch">Distributeur exclusif des solutions d'encaissement automatique Cashmatic en France. Vente, installation et maintenance.</p>
+        <address style="font-style:normal;margin-top:14px">61 avenue du Général Michel Bizot<br>75012 Paris</address>
+      </div>
+      <div><p class="foot-h">La gamme</p><ul><li><a href="selfpay.html">SelfPay</a></li><li><a href="visualpay.html">VisualPay</a></li><li><a href="index.html#gamme">InPay</a></li><li><a href="https://cashmatic-france.fr/financement/">Financement</a></li></ul></div>
+      <div><p class="foot-h">CMDF</p><ul><li><a href="https://cashmatic-france.fr/lentreprise/">L'entreprise</a></li><li><a href="https://cashmatic-france.fr/nos-realisations/">Réalisations</a></li><li><a href="partenaires.html">Partenaires</a></li><li><a href="#contact">Contact</a></li><li><a href="tel:+33765745060" class="mono">07 65 74 50 60</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="y">2026</span> CMDF — Cashmatic Distribution France</span>
+      <nav aria-label="Liens légaux"><a href="mentions-legales.html">Mentions légales</a><a href="https://cashmatic-france.fr/conditions-generales/">Conditions générales</a><a href="mentions-legales.html#cookies">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.mtab'));
+  function select(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true)}
+    });
+  });
+  var sel=document.getElementById('f-model');
+  document.querySelectorAll('[data-model]').forEach(function(a){a.addEventListener('click',function(){if(sel)sel.value=a.dataset.model})});
+})();
+</script>
+</body>
+</html>
