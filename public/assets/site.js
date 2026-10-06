@@ -96,7 +96,7 @@
     var ok=document.getElementById('form-ok'),err=document.getElementById('form-err');
     ok.style.display='none';err.style.display='none';
     btn.disabled=true;btn.textContent='Envoi en cours…';
-    var d=new FormData(form);d.append('t',form.dataset.t||'');
+    var d=new URLSearchParams(new FormData(form));d.append('t',form.dataset.t||'');
     function fail(msg){
       err.innerHTML=' Vous pouvez aussi nous écrire à <a href="mailto:contact@cashmatic-france.fr">contact@cashmatic-france.fr</a> ou appeler le <a href="tel:+33765745060">07 65 74 50 60</a>.';
       err.insertBefore(document.createTextNode(msg||"L'envoi n'a pas abouti."),err.firstChild);
