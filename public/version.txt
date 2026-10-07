@@ -1,1 +1,1 @@
-2026-10-06T17:39:57Z formulaire : envoi urlencoded
+2026-10-07T20:17:02Z fiche entreprise (horaires, TVA, SIRET) + fil d'Ariane mentions légales
