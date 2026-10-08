@@ -25,6 +25,12 @@
 <link rel="icon" href="assets/logo-cmdf.png">
 <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
+<style>
+/* Logo CMDF métal liquide (hero) */
+/* l'emblème occupe 62 % du carré : marges négatives pour l'aligner sur le texte */
+.hero-logo{--s:clamp(96px,9vw,124px);width:var(--s);aspect-ratio:1;position:relative;margin:calc(var(--s)*-.19) 0 calc(var(--s)*-.19 + 22px) calc(var(--s)*-.19)}
+.hero-logo img{width:100%;height:100%;display:block}
+</style>
 <script type="application/ld+json" id="ld-org">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/og-accueil.jpg", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "sameAs": ["https://www.linkedin.com/company/68831497/"], "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}, "legalName": "CMDF", "vatID": "FR76879485506", "taxID": "87948550600023", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}]}</script>
 </head>
 <body>
@@ -70,6 +76,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
+      <div class="hero-logo cmdf-liquid-logo rv" data-cmdf-liquid-logo data-tint="auto">
+        <img src="cmdf-liquid-logo/fallback-light.png" data-src-light="cmdf-liquid-logo/fallback-light.png" data-src-dark="cmdf-liquid-logo/fallback-blue.png" alt="" width="124" height="124">
+      </div>
       <p class="eyebrow rv">Distributeur exclusif Cashmatic en France</p>
       <h1 class="rv d1">Sécurisez <em>vos encaissements.</em></h1>
       <p class="lead rv d2">Monnayeurs et caisses automatiques SelfPay, bornes VisualPay, installés et maintenus partout en France. Le client paie, la machine vérifie et rend la monnaie. Le soir, votre caisse tombe juste.</p>
@@ -378,6 +387,7 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="cmdf-liquid-logo/liquid-logo.js" defer></script>
 <script>
 (function(){
   var root=document.querySelector('.hs'); if(!root) return;
