@@ -4,7 +4,7 @@
  * Reçoit les demandes des formulaires du site, les enregistre comme leads dans Odoo
  * et les envoie par e-mail à CMDF.
  * Aucun secret ici : ce fichier est public (dépôt GitHub du site). Les accès Odoo sont
- * lus dans ODOO_CONFIG, un fichier placé hors du dossier public et jamais versionné.
+ * lus dans ~/cmdf-odoo.php, un fichier placé hors du dossier public et jamais versionné.
  * Sans ce fichier, ou si Odoo ne répond pas, la demande part quand même par e-mail.
  */
 
@@ -13,7 +13,7 @@ const EXPEDITEUR   = 'contact@cashmatic-france.fr';
 const SITE_HOST    = 'cashmatic-france.fr';
 const MAX_PAR_HEURE = 5;       // envois max par adresse IP et par heure
 const DELAI_MIN_MS  = 3000;    // un humain ne remplit pas le formulaire en moins de 3 s
-const ODOO_CONFIG   = __DIR__ . '/../cmdf-odoo.php';   // ~/cmdf-odoo.php chez o2switch
+const ODOO_CONFIG   = 'cmdf-odoo.php';   // cherché dans le dossier personnel o2switch (à côté de public_html)
 const ODOO_TIMEOUT  = 6;       // secondes par appel à Odoo
 
 date_default_timezone_set('Europe/Paris');
@@ -257,11 +257,29 @@ $page_lib = $pages[$page] ?? 'Site';
 $type = ($page === 'partenaires') ? 'Demande partenaire' : 'Demande de devis';
 $objet = '[Site] ' . $type . ' : ' . $commerce . ' (' . $page_lib . ')';
 
+// Fichier d'accès Odoo : dossier parent du site, puis dossier personnel du compte
+function odoo_chemins_config() {
+    $dossiers = [dirname(__DIR__), dirname((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''))];
+    if (getenv('HOME')) { $dossiers[] = getenv('HOME'); }
+    if (function_exists('posix_getpwuid') && function_exists('posix_geteuid')) {
+        $u = @posix_getpwuid(posix_geteuid());
+        if (!empty($u['dir'])) { $dossiers[] = $u['dir']; }
+    }
+    $chemins = [];
+    foreach ($dossiers as $d) { if ($d !== '' && $d !== '.' && $d !== '/') { $chemins[] = rtrim($d, '/') . '/' . ODOO_CONFIG; } }
+    return array_values(array_unique($chemins));
+}
+
 // Enregistrement dans Odoo (avant le mail, pour y indiquer le lead). Jamais bloquant.
-$odoo_ligne = 'Lead Odoo : non configuré';
-if (is_file(ODOO_CONFIG)) {
+$odoo_config = null;
+$odoo_chemins = odoo_chemins_config();
+foreach ($odoo_chemins as $c) { if (@is_file($c)) { $odoo_config = $c; break; } }
+$odoo_ligne = 'Lead Odoo : non configuré (fichier introuvable, cherché dans : ' . implode(', ', $odoo_chemins)
+    . (ini_get('open_basedir') ? ' ; open_basedir = ' . ini_get('open_basedir') : '') . ')';
+if ($odoo_config !== null) {
     try {
-        $cfg = include ODOO_CONFIG;
+        if (!is_readable($odoo_config)) { throw new RuntimeException('fichier ' . $odoo_config . ' illisible (droits)'); }
+        $cfg = include $odoo_config;
         if (!is_array($cfg) || empty($cfg['url']) || empty($cfg['db']) || empty($cfg['login']) || empty($cfg['api_key'])) {
             throw new RuntimeException('fichier de configuration incomplet');
         }
