@@ -79,6 +79,8 @@
 .sec-row .mono{font-size:13px;color:var(--accent);white-space:nowrap;text-align:right}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .chips span{font-size:16px;font-weight:500;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.chips .chip-logo{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px}
+.chips .chip-logo img{height:28px;width:auto;max-width:96px;border-radius:6px;object-fit:contain}
 @media (max-width:900px){
   .how,.adv{grid-template-columns:1fr}
   .how li+li{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:24px}
@@ -96,6 +98,8 @@
 .p-hero .beam{background:var(--card);border-radius:var(--r-lg);padding:28px 22px;box-shadow:var(--shadow);grid-template-columns:minmax(0,1fr) auto minmax(0,.9fr);gap:22px}
 .p-hero .bhub img{width:72px}
 .p-hero .bnode b{white-space:normal}
+.p-hero .bnode-logo small{display:none}
+.p-hero .bnode-logo{gap:10px}
 .profiles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .profile{background:var(--card);border-radius:var(--r-lg);padding:clamp(24px,3vw,40px);box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:12px}
 .profile .mono{font-size:13px;color:var(--accent)}
@@ -186,10 +190,10 @@
       <div class="beam" id="beam" role="img" aria-label="Schéma : les logiciels de caisse Clyo Systems, JDC, Softavera et Splash 360 pilotent le monnayeur Cashmatic, qui valide le paiement dans la caisse.">
         <svg class="beam-svg" aria-hidden="true"></svg>
         <div class="beam-src">
-          <div class="bnode" data-from><b>Clyo Systems</b><small>Logiciel de caisse</small></div>
-          <div class="bnode" data-from><b>JDC</b><small>Logiciel de caisse</small></div>
-          <div class="bnode" data-from><b>Softavera</b><small>Logiciel de caisse</small></div>
-          <div class="bnode" data-from><b>Splash 360</b><small>Logiciel de caisse</small></div>
+          <div class="bnode bnode-logo" data-from><img class="blogo" src="assets/partenaires/clyo.webp" alt="" width="131" height="96" loading="lazy" decoding="async"><span><b>Clyo Systems</b><small>Logiciel de caisse</small></span></div>
+          <div class="bnode bnode-logo" data-from><img class="blogo" src="assets/partenaires/jdc.webp" alt="" width="323" height="96" loading="lazy" decoding="async"><span><b>JDC</b><small>Logiciel de caisse</small></span></div>
+          <div class="bnode bnode-logo" data-from><img class="blogo" src="assets/partenaires/softavera.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span><b>Softavera</b><small>Logiciel de caisse</small></span></div>
+          <div class="bnode bnode-logo" data-from><img class="blogo" src="assets/partenaires/splash360.webp" alt="" width="333" height="96" loading="lazy" decoding="async"><span><b>Splash 360</b><small>Logiciel de caisse</small></span></div>
         </div>
         <div class="bhub" data-hub><img src="assets/sp460-cutout.webp" alt="" width="358" height="520"><span class="mono">Monnayeur Cashmatic</span></div>
         <div class="bnode bout" data-out><span class="dot-live" aria-hidden="true"></span><b>Caisse juste</b><small>Paiement validé dans votre logiciel</small></div>
@@ -297,7 +301,7 @@
       <p class="eyebrow rv">Ils travaillent avec nous</p>
       <h2 id="t-who" class="rv d1">Des éditeurs déjà compatibles.</h2>
       <p class="lead rv d2">Plusieurs logiciels de caisse du marché pilotent déjà nos monnayeurs. Le vôtre peut rejoindre la liste.</p>
-      <div class="chips rv d3"><span>Clyo Systems</span><span>JDC</span><span>Softavera</span><span>Soft Caisse</span><span>Lunicco</span><span>Splash 360</span></div>
+      <div class="chips rv d3"><span class="chip-logo"><img class="" src="assets/partenaires/clyo.webp" alt="" width="131" height="96" loading="lazy" decoding="async">Clyo Systems</span><span class="chip-logo"><img class="" src="assets/partenaires/jdc.webp" alt="" width="323" height="96" loading="lazy" decoding="async">JDC</span><span class="chip-logo"><img class="" src="assets/partenaires/softavera.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Softavera</span><span class="chip-logo"><img class="" src="assets/partenaires/splash360.webp" alt="" width="333" height="96" loading="lazy" decoding="async">Splash 360</span><span>Soft Caisse</span><span>Lunicco</span></div>
     </div>
     <div>
       <p class="eyebrow rv">Ce que vous proposez à vos clients</p>
