@@ -252,7 +252,7 @@ function odoo_enregistrer_demande(array $cfg, array $d) {
 }
 
 // Objet : [Site] Demande de devis : Boulangerie Martin (SelfPay)
-$pages = ['accueil' => 'Accueil', 'selfpay' => 'SelfPay', 'visualpay' => 'VisualPay', 'partenaires' => 'Partenaires'];
+$pages = ['accueil' => 'Accueil', 'selfpay' => 'SelfPay', 'visualpay' => 'VisualPay', 'partenaires' => 'Partenaires', 'inpay' => 'InPay'];
 $page_lib = $pages[$page] ?? 'Site';
 $type = ($page === 'partenaires') ? 'Demande partenaire' : 'Demande de devis';
 $objet = '[Site] ' . $type . ' : ' . $commerce . ' (' . $page_lib . ')';
