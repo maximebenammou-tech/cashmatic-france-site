@@ -2,6 +2,19 @@
 
 RewriteEngine On
 
+# Restes de WordPress : 410 (supprimé définitivement) pour que Google les oublie vite
+RewriteRule ^(wp-content|wp-includes|wp-admin|wp-json|category|tag|author|comments)(/|$) - [G,L]
+RewriteRule ^(wp-login|xmlrpc|wp-cron|wp-signup)\.php$ - [G,L]
+RewriteRule (^|/)feed/?$ - [G,L]
+
+# Anciennes adresses courantes
+RewriteRule ^(index\.php|home/?|accueil/?)$ https://cashmatic-france.fr/ [R=301,L]
+RewriteRule ^politique-de-confidentialite/?$ https://cashmatic-france.fr/mentions-legales.html#donnees [R=301,L,NE]
+
+# /index.html demandé directement -> / (évite le doublon de la page d'accueil)
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+RewriteRule ^index\.html$ https://cashmatic-france.fr/ [R=301,L]
+
 # Anciennes URL WordPress -> nouvelles pages (301, une seule redirection)
 RewriteRule ^conditions-generales/?$ https://cashmatic-france.fr/mentions-legales.html [R=301,L,NE]
 RewriteRule ^mentions-legales/?$ https://cashmatic-france.fr/mentions-legales.html [R=301,L,NE]
