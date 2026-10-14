@@ -168,7 +168,7 @@ void main(){
     const speed = host.dataset.speed ? +host.dataset.speed : .3;
 
     const resize = () => {
-      const px = Math.max(1, Math.round(host.clientWidth * Math.min(devicePixelRatio || 1, 2)));
+      const px = Math.max(1, Math.round(host.clientWidth * Math.min(devicePixelRatio || 1, 1.5)));
       if (canvas.width !== px) { canvas.width = canvas.height = px; gl.viewport(0, 0, px, px); }
     };
 
@@ -178,11 +178,13 @@ void main(){
       gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     };
+    const FRAME = 1000 / 30; // 30 images/s suffisent pour ce mouvement lent
     const loop = now => {
+      raf = requestAnimationFrame(loop);
+      if (last && now - last < FRAME) return;
       if (last) time += (now - last) * speed;
       last = now;
       draw();
-      raf = requestAnimationFrame(loop);
     };
     const update = () => {
       cancelAnimationFrame(raf); last = 0;
@@ -213,6 +215,9 @@ void main(){
     img.src = host.dataset.relief || SCRIPT_DIR + 'relief-emblem.png';
   }
 
+  // L'image de secours (identique) s'affiche d'abord ; l'animation démarre une fois la page
+  // chargée et le navigateur au repos, pour ne pas ralentir l'affichage ni les premiers clics.
   const init = () => document.querySelectorAll('[data-cmdf-liquid-logo]').forEach(mount);
-  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+  const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(init, { timeout: 3000 }) : setTimeout(init, 1500));
+  document.readyState === 'complete' ? idle() : addEventListener('load', idle, { once: true });
 })();

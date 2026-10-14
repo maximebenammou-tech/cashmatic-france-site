@@ -45,6 +45,8 @@ RewriteRule ^(outils|apercu)(/|$) - [F,L]
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Navigateurs : toujours en https pendant 1 an (ignoré sur une réponse http, donc sans risque)
+  Header always set Strict-Transport-Security "max-age=31536000"
   <FilesMatch "\.(css|js|webp|png|jpg|svg)$">
     Header set Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
   </FilesMatch>
