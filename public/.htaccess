@@ -22,7 +22,7 @@ RewriteRule ^politique-de-cookies-ue/?$ https://cashmatic-france.fr/mentions-leg
 RewriteRule ^contact/?$ https://cashmatic-france.fr/#contact [R=301,L,NE]
 RewriteRule ^financement/?$ https://cashmatic-france.fr/#financement [R=301,L,NE]
 RewriteRule ^lentreprise/?$ https://cashmatic-france.fr/ [R=301,L,NE]
-RewriteRule ^nos-realisations/?$ https://cashmatic-france.fr/#secteurs [R=301,L,NE]
+RewriteRule ^nos-realisations/?$ https://cashmatic-france.fr/realisations.html [R=301,L]
 RewriteRule ^la-gamme-cashmatic-france/?$ https://cashmatic-france.fr/#gamme [R=301,L,NE]
 RewriteRule ^la-gamme-cashmatic-france/gdo-2/?$ https://cashmatic-france.fr/inpay.html [R=301,L,NE]
 RewriteRule ^la-gamme-cashmatic-france/selfpay-family-2/?$ https://cashmatic-france.fr/selfpay.html [R=301,L,NE]
