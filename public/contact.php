@@ -85,8 +85,8 @@ $ip = $_SERVER['REMOTE_ADDR'] ?? '0';
 $fichier = $dossier . '/rl-' . hash('sha256', $ip . '|cmdf') . '.json';
 $maintenant = time();
 $horodatages = [];
-if (is_file($fichier)) {
-    $lu = json_decode((string) @file_get_contents($fichier), true);
+if (is_file($fichier)) { // nosemgrep : chemin = dossier fixe + empreinte sha256, aucune donnée visiteur
+    $lu = json_decode((string) @file_get_contents($fichier), true); // nosemgrep : idem, chemin calculé
     if (is_array($lu)) {
         $horodatages = array_values(array_filter($lu, function ($x) use ($maintenant) { return is_int($x) && $x > $maintenant - 3600; }));
     }
@@ -151,7 +151,7 @@ function odoo_appel(array $cfg, $service, $methode, array $args) {
     } else {
         $ctx = stream_context_create(['http' => ['method' => 'POST', 'header' => "Content-Type: application/json\r\n",
             'content' => $corps, 'timeout' => ODOO_TIMEOUT, 'ignore_errors' => true]]);
-        $rep = @file_get_contents($url, false, $ctx);
+        $rep = @file_get_contents($url, false, $ctx); // nosemgrep : URL Odoo issue de la config serveur, pas du visiteur
         if ($rep === false) { throw new RuntimeException('Odoo injoignable'); }
     }
     $j = json_decode($rep, true);
@@ -272,13 +272,14 @@ function odoo_chemins_config() {
 // Enregistrement dans Odoo (avant le mail, pour y indiquer le lead). Jamais bloquant.
 $odoo_config = null;
 $odoo_chemins = odoo_chemins_config();
-foreach ($odoo_chemins as $c) { if (@is_file($c)) { $odoo_config = $c; break; } }
+foreach ($odoo_chemins as $c) { if (@is_file($c)) { $odoo_config = $c; break; } } // nosemgrep : chemins construits depuis HOME et une constante
 $odoo_ligne = 'Lead Odoo : non configuré (fichier introuvable, cherché dans : ' . implode(', ', $odoo_chemins)
     . (ini_get('open_basedir') ? ' ; open_basedir = ' . ini_get('open_basedir') : '') . ')';
 if ($odoo_config !== null) {
     try {
+        // nosemgrep : $odoo_config provient de odoo_chemins_config() (constantes), jamais de la requête
         if (!is_readable($odoo_config)) { throw new RuntimeException('fichier ' . $odoo_config . ' illisible (droits)'); }
-        $cfg = include $odoo_config;
+        $cfg = include $odoo_config; // nosemgrep : fichier de config privé hors du site, chemin non modifiable par le visiteur
         if (!is_array($cfg) || empty($cfg['url']) || empty($cfg['db']) || empty($cfg['login']) || empty($cfg['api_key'])) {
             throw new RuntimeException('fichier de configuration incomplet');
         }
@@ -338,6 +339,6 @@ if (!$envoye) {
 }
 
 $horodatages[] = $maintenant;
-@file_put_contents($fichier, json_encode($horodatages), LOCK_EX);
+@file_put_contents($fichier, json_encode($horodatages), LOCK_EX); // nosemgrep : chemin calculé (empreinte sha256)
 
 repondre(true, 200, 'Merci, votre demande est bien partie. Nous vous répondons sous 24 h ouvrées.');

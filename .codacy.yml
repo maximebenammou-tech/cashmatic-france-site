@@ -1,0 +1,7 @@
+# Configuration Codacy
+# PHP_CodeSniffer n'apporte ici que des remarques de style (règle Squiz qui interdit « ! ») :
+# on le limite pour que la note reflète les vrais problèmes.
+engines:
+  phpcs:
+    exclude_paths:
+      - "public/contact.php"

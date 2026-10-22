@@ -11,7 +11,7 @@
 
   var els=document.querySelectorAll('.rv');
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(el){io.observe(el)});
   } else els.forEach(function(el){el.classList.add('in')});
 
@@ -36,7 +36,7 @@
   }
   if(!reduce&&'IntersectionObserver' in window){
     ticks.forEach(function(el){el.textContent='0'});
-    var tio=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){runTick(x.target);tio.unobserve(x.target)}})},{threshold:.6});
+    var tio=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){runTick(x.target);tio.unobserve(x.target)}})},{threshold:0.6});
     ticks.forEach(function(el){tio.observe(el)});
   }
 
@@ -46,7 +46,7 @@
     var svg=beam.querySelector('.beam-svg'),NS='http://www.w3.org/2000/svg';
     var hub=beam.querySelector('[data-hub]'),out=beam.querySelector('[data-out]');
     var froms=beam.querySelectorAll('[data-from]');
-    function draw(){
+    var draw=function(){
       var c=beam.getBoundingClientRect();
       svg.setAttribute('viewBox','0 0 '+c.width+' '+c.height);
       while(svg.firstChild)svg.removeChild(svg.firstChild);
@@ -60,11 +60,11 @@
         else{var my=(ay+by)/2;d='M'+ax+','+ay+' C'+ax+','+my+' '+bx+','+my+' '+bx+','+by}
         var base=document.createElementNS(NS,'path');base.setAttribute('d',d);base.setAttribute('class','base');svg.appendChild(base);
         var fl=document.createElementNS(NS,'path');fl.setAttribute('d',d);fl.setAttribute('class','flow');svg.appendChild(fl);
-        var L=fl.getTotalLength(),seg=Math.min(70,L*.35);
+        var L=fl.getTotalLength(),seg=Math.min(70,L*0.35);
         fl.style.strokeDasharray=seg+' '+(L+seg);fl.style.strokeDashoffset=seg;
         if(!reduce&&fl.animate)fl.animate([{strokeDashoffset:seg+'px'},{strokeDashoffset:(-L)+'px'}],{duration:2400,delay:i===pairs.length-1?1400:i*350,iterations:Infinity,easing:'ease-in-out'});
       });
-    }
+    };
     draw();window.addEventListener('resize',draw);
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
   }
@@ -74,14 +74,14 @@
   if(form){
   form.dataset.t=String(Date.now());
   if(/[?&]contact=envoye/.test(location.search)){var o=document.getElementById('form-ok');if(o)o.style.display='block'}
-  function check(field){
+  var check=function(field){
     var input=field.querySelector('input,select,textarea');
     if(!input)return true;
     var ok=input.checkValidity();
     field.classList.toggle('invalid',!ok);
     input.setAttribute('aria-invalid',!ok);
     return ok;
-  }
+  };
   form.querySelectorAll('.field').forEach(function(f){
     var i=f.querySelector('input,select,textarea');
     i.addEventListener('blur',function(){if(i.value)check(f)});
@@ -92,21 +92,23 @@
     var fields=form.querySelectorAll('.field'),first=null;
     fields.forEach(function(f){if(!check(f)&&!first)first=f});
     if(first){first.querySelector('input,select,textarea').focus();return}
-    var btn=form.querySelector('button[type="submit"]'),label=btn.innerHTML;
+    var btn=form.querySelector('button[type="submit"]'),label=[].slice.call(btn.childNodes).map(function(n){return n.cloneNode(true)});
+    var restore=function(){btn.disabled=false;btn.textContent='';label.forEach(function(n){btn.appendChild(n.cloneNode(true))})};
+    var lien=function(href,txt){var a=document.createElement('a');a.href=href;a.textContent=txt;return a};
     var ok=document.getElementById('form-ok'),err=document.getElementById('form-err');
     ok.style.display='none';err.style.display='none';
     btn.disabled=true;btn.textContent='Envoi en cours…';
     var d=new URLSearchParams(new FormData(form));d.append('t',form.dataset.t||'');
     try{var q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign'].forEach(function(k){var v=q.get(k);if(v)d.append(k,v.slice(0,100))});var ref=document.referrer;if(ref&&ref.indexOf(location.origin)!==0)d.append('provenance',ref.slice(0,300))}catch(x){}
     function fail(msg){
-      err.innerHTML=' Vous pouvez aussi nous écrire à <a href="mailto:contact@cashmatic-france.fr">contact@cashmatic-france.fr</a> ou appeler le <a href="tel:+33765745060">07 65 74 50 60</a>.';
-      err.insertBefore(document.createTextNode(msg||"L'envoi n'a pas abouti."),err.firstChild);
-      err.style.display='block';btn.disabled=false;btn.innerHTML=label;
+      err.textContent='';
+      err.append(msg||"L'envoi n'a pas abouti.",' Vous pouvez aussi nous écrire à ',lien('mailto:contact@cashmatic-france.fr','contact@cashmatic-france.fr'),' ou appeler le ',lien('tel:+33765745060','07 65 74 50 60'),'.');
+      err.style.display='block';restore();
     }
     fetch(form.getAttribute('action'),{method:'POST',body:d,headers:{'Accept':'application/json'}})
       .then(function(r){return r.json().catch(function(){return {ok:false}}).then(function(j){return {status:r.status,j:j}})})
       .then(function(res){
-        if(res.j&&res.j.ok){form.reset();form.querySelectorAll('.field').forEach(function(f){f.classList.remove('invalid')});ok.style.display='block';btn.disabled=false;btn.innerHTML=label;ok.focus&&ok.setAttribute('tabindex','-1');ok.focus();}
+        if(res.j&&res.j.ok){form.reset();form.querySelectorAll('.field').forEach(function(f){f.classList.remove('invalid')});ok.style.display='block';restore();ok.focus&&ok.setAttribute('tabindex','-1');ok.focus();}
         else fail(res.j&&res.j.message);
       })
       .catch(function(){fail()});

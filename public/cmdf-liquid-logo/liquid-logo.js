@@ -151,9 +151,10 @@ void main(){
       const t = document.documentElement.dataset.theme;
       return t ? t === 'dark' : darkQuery.matches;
     };
+    const TINTS = new Map([['silver', 0], ['blue', 1], ['blue-light', 2]]);
     const applyTint = () => {
       const mode = host.dataset.tint || 'blue';
-      const tint = { silver: 0, blue: 1, 'blue-light': 2 }[mode] ?? (isDark() ? 1 : 2); // "auto"
+      const tint = TINTS.has(mode) ? TINTS.get(mode) : (isDark() ? 1 : 2); // "auto"
       gl.uniform1f(U('u_tint'), tint);
       if (fallback && mode === 'auto' && fallback.dataset.srcDark) {
         fallback.src = isDark() ? fallback.dataset.srcDark : fallback.dataset.srcLight || fallback.src;
