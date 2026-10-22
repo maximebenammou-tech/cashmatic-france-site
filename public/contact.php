@@ -147,7 +147,6 @@ function odoo_appel(array $cfg, $service, $methode, array $args) {
             CURLOPT_HTTPHEADER => ['Content-Type: application/json'], CURLOPT_TIMEOUT => ODOO_TIMEOUT, CURLOPT_CONNECTTIMEOUT => 4]);
         $rep = curl_exec($c);
         $err = curl_error($c);
-        curl_close($c);
         if ($rep === false) { throw new RuntimeException('Odoo injoignable : ' . $err); }
     } else {
         $ctx = stream_context_create(['http' => ['method' => 'POST', 'header' => "Content-Type: application/json\r\n",
