@@ -1,3 +1,8 @@
+# Fichiers de configuration PHP jamais servis
+<FilesMatch "^(\.user\.ini|php\.ini)$">
+  Require all denied
+</FilesMatch>
+
 # Hébergement o2switch (cPanel, Apache) : mêmes règles que vercel.json
 
 RewriteEngine On
