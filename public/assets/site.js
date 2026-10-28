@@ -70,6 +70,20 @@
   }
 
 
+  // Carrousel Réalisations (accueil)
+  var rc=document.querySelector('[data-rc-root]');
+  if(rc){
+    var track=rc.querySelector('.rc-track'),btns=document.querySelectorAll('.rc-btn'),bar=document.querySelector('.rc-bar');
+    var step=function(){var c=track.querySelector('.rc-card');return c?c.getBoundingClientRect().width+16:300};
+    var sync=function(){
+      var max=track.scrollWidth-track.clientWidth,x=track.scrollLeft;
+      btns.forEach(function(b){b.disabled=+b.dataset.rc<0?x<=2:x>=max-2});
+      if(bar){var w=Math.max(0.12,track.clientWidth/track.scrollWidth);bar.style.setProperty('--rc-w',(w*100)+'%');bar.style.setProperty('--rc-x',(max>0?x/max*(1-w)/w*100:0)+'%')}
+    };
+    btns.forEach(function(b){b.addEventListener('click',function(){track.scrollBy({left:+b.dataset.rc*step()*(window.innerWidth>1100?2:1),behavior:reduce?'auto':'smooth'})})});
+    track.addEventListener('scroll',sync,{passive:true});window.addEventListener('resize',sync);sync();
+  }
+
   var form=document.getElementById('quote');
   if(form){
   form.dataset.t=String(Date.now());
