@@ -429,3 +429,29 @@ form{position:relative}
 .rc-bar span{display:block;height:100%;width:var(--rc-w,25%);background:var(--ink);border-radius:2px;transform:translateX(var(--rc-x,0));transition:transform .15s linear}
 @media (max-width:900px){.rc-side{align-items:flex-start;justify-self:start}.rc-side .lead{text-align:left}.rc-nav{display:none}.rc-card{flex-basis:78vw;max-width:340px}}
 @media (prefers-reduced-motion:reduce){.rc-card img{transition:none}}
+
+/* Animated Beam : un paiement à la fois, couleur du logiciel actif */
+.beam{--beam-c:var(--accent)}
+.bnode{transition:border-color .35s,box-shadow .35s}
+.bnode.is-on{border-color:var(--beam-c);box-shadow:0 0 0 3px color-mix(in srgb,var(--beam-c) 16%,transparent)}
+.beam-svg .base{transition:stroke .35s}
+.beam-svg .base.on{stroke:color-mix(in srgb,var(--beam-c) 38%,transparent)}
+.beam-svg .flow{stroke-width:3;filter:drop-shadow(0 0 4px color-mix(in srgb,var(--beam-c) 70%,transparent))}
+.bhub.pulse{animation:hub-pulse .65s var(--ease)}
+@keyframes hub-pulse{0%{transform:scale(1)}30%{transform:scale(1.03)}100%{transform:scale(1)}}
+.bout{grid-template-columns:16px 1fr;transition:border-color .35s,box-shadow .35s}
+.bout .dot-live{justify-self:center;display:grid;place-items:center;transition:width .3s var(--ease),height .3s var(--ease)}
+.bout .dot-live::after{content:"";width:6px;height:3px;border:solid #fff;border-width:0 0 2px 2px;margin-top:-2px;transform:rotate(-45deg) scale(0);transition:transform .25s var(--ease) .08s}
+.bout.is-ok{border-color:#2F9E5B;box-shadow:0 0 0 3px color-mix(in srgb,#2F9E5B 16%,transparent)}
+.bout.is-ok .dot-live{width:16px;height:16px}
+.bout.is-ok .dot-live::after{transform:rotate(-45deg) scale(1)}
+/* Pulsations : ondes à la couleur du logiciel actif (box-shadow, sans débordement de page) */
+.bnode::after,.bhub::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;--rc:var(--beam-c)}
+.bnode.is-on::after{animation:ripple 1s ease-out 3}
+.bhub.pulse::after{animation:ripple-lg .9s ease-out 2}
+.bout::after{--rc:#2F9E5B}
+.bout.is-ok::after{animation:ripple 1s ease-out 2}
+.bout .dot-live{animation:dot-breathe 2.4s ease-out infinite}
+@keyframes ripple{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--rc) 55%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+@keyframes ripple-lg{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--rc) 50%,transparent)}100%{box-shadow:0 0 0 22px transparent}}
+@keyframes dot-breathe{0%{box-shadow:0 0 0 0 color-mix(in srgb,#2F9E5B 45%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
