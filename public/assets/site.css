@@ -271,6 +271,7 @@ form{position:relative}
 @media (max-width:560px){
   .beam{grid-template-columns:1fr;gap:36px}
   .beam-src{grid-template-columns:1fr 1fr;gap:10px}
+  .beam-src .bnode:last-child:nth-child(odd){grid-column:1/-1}
   .bhub{justify-self:center}
   .bout{justify-self:center}
 }
