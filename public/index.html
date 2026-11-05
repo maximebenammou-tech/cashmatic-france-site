@@ -30,7 +30,7 @@
 /* l'emblème occupe 62 % du carré : marges négatives pour l'aligner sur le texte */
 .hero-logo{--s:clamp(96px,9vw,124px);width:var(--s);aspect-ratio:1;position:relative;margin:calc(var(--s)*-.19) 0 calc(var(--s)*-.19 + 22px) calc(var(--s)*-.19)}
 .hero-logo img{width:100%;height:100%;display:block}
-/* Vidéo « La gamme en 20 secondes » : lecture au clic, rien n'est chargé avant */
+/* Vidéo de la gamme : lecture au clic, rien n'est chargé avant */
 .gamme-video{margin:18px 0 0}
 .gv-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#0B1640;aspect-ratio:16/9}
 .gv-frame video{display:block;width:100%;height:100%;object-fit:cover}
@@ -42,7 +42,7 @@
 .gv-cap{margin-top:10px;font-size:12px;color:var(--ink-3);font-family:"Geist Mono",monospace}
 </style>
 <script type="application/ld+json" id="ld-org">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/og-accueil.jpg", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "sameAs": ["https://www.linkedin.com/company/68831497/"], "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}, "legalName": "CMDF", "vatID": "FR76879485506", "taxID": "87948550600023", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "CMDF · la gamme Cashmatic en 20 secondes", "description": "SelfPay, InPay et VisualPay : les solutions d'encaissement automatique Cashmatic, distribuées, installées et maintenues en France par CMDF, distributeur officiel et exclusif.", "thumbnailUrl": ["https://cashmatic-france.fr/assets/video/cmdf-gamme-vignette.jpg"], "uploadDate": "2026-11-04T18:00:00+01:00", "duration": "PT20S", "contentUrl": "https://cashmatic-france.fr/assets/video/cmdf-gamme-cashmatic-20s.mp4", "inLanguage": "fr", "publisher": {"@id": "https://cashmatic-france.fr/#cmdf"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "CMDF · la gamme Cashmatic en vidéo", "description": "SelfPay, InPay et VisualPay : les solutions d'encaissement automatique Cashmatic, distribuées, installées et maintenues en France par CMDF, distributeur officiel et exclusif.", "thumbnailUrl": ["https://cashmatic-france.fr/assets/video/cmdf-gamme-vignette.jpg"], "uploadDate": "2026-11-04T18:00:00+01:00", "duration": "PT20S", "contentUrl": "https://cashmatic-france.fr/assets/video/cmdf-gamme-cashmatic-20s.mp4", "inLanguage": "fr", "publisher": {"@id": "https://cashmatic-france.fr/#cmdf"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Aller au contenu</a>
@@ -202,7 +202,7 @@
         <video controls preload="none" playsinline poster="assets/video/cmdf-gamme-vignette.webp" width="1920" height="1080" aria-describedby="gv-cap">
           <source src="assets/video/cmdf-gamme-cashmatic-20s.mp4" type="video/mp4">
         </video>
-        <button class="gv-play" type="button" aria-label="Lire la vidéo : la gamme Cashmatic en 20 secondes"><span class="gv-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg></span>La gamme en 20 secondes</button>
+        <button class="gv-play" type="button" aria-label="Lire la vidéo : la gamme Cashmatic"><span class="gv-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg></span>Voir la vidéo</button>
       </div>
       <figcaption class="gv-cap" id="gv-cap">SelfPay, InPay et VisualPay : la gamme Cashmatic, distribuée, installée et maintenue en France par CMDF.</figcaption>
     </figure>
