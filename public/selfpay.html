@@ -93,8 +93,19 @@
   .common div{grid-template-columns:1fr;gap:4px}
 }
 @media (max-width:560px){.specs{grid-template-columns:1fr 1fr}.specs div{padding-left:0!important;border-left:0!important}.specs div:nth-child(even){padding-left:14px!important;border-left:1px solid var(--line)!important}}
+/* Vidéo SelfPay 460 : lecture au clic, rien n'est chargé avant */
+.vid-block{margin:clamp(28px,4vw,48px) 0 0}
+.vid-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#000;aspect-ratio:16/9}
+.vid-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.vid-play{display:none}
+.js .vid-play{position:absolute;left:clamp(12px,2.5vw,24px);bottom:clamp(12px,2.5vw,24px);display:inline-flex;align-items:center;gap:12px;padding:6px 18px 6px 6px;border:0;border-radius:999px;background:#FBFAF7;color:#16181D;font:500 15px/1.2 Geist,sans-serif;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);transition:transform .2s var(--ease)}
+.js .vid-play:hover{transform:translateY(-2px)}
+.vid-ico{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);padding-left:2px;flex:none}
+.vid-block.playing .vid-play{display:none}
+.vid-cap{margin-top:10px;font-size:12px;color:var(--ink-3);font-family:"Geist Mono",monospace}
 </style>
 <script type="application/ld+json" id="ld-org">[{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://cashmatic-france.fr/#cmdf", "name": "CMDF — Cashmatic Distribution France", "alternateName": "Cashmatic France", "description": "Distributeur exclusif des monnayeurs, caisses automatiques et bornes Cashmatic en France : vente, installation, maintenance.", "url": "https://cashmatic-france.fr/", "logo": "https://cashmatic-france.fr/assets/logo-cmdf.png", "image": "https://cashmatic-france.fr/assets/og-accueil.jpg", "telephone": "+33765745060", "email": "contact@cashmatic-france.fr", "sameAs": ["https://www.linkedin.com/company/68831497/"], "address": {"@type": "PostalAddress", "streetAddress": "61 avenue du Général Michel Bizot", "postalCode": "75012", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": {"@type": "Country", "name": "France"}, "brand": {"@type": "Brand", "name": "Cashmatic"}, "legalName": "CMDF", "vatID": "FR76879485506", "taxID": "87948550600023", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}]}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cashmatic-france.fr/"}, {"@type": "ListItem", "position": 2, "name": "SelfPay", "item": "https://cashmatic-france.fr/selfpay.html"}]}]</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "SelfPay 460 : le monnayeur automatique compact de Cashmatic", "description": "Le SelfPay 460, le plus compact de la gamme Cashmatic : billets et pièces, monnaie rendue exacte, aucune erreur de rendu. Distribué, installé et maintenu en France par CMDF.", "thumbnailUrl": ["https://cashmatic-france.fr/assets/video/cmdf-selfpay460-cinema-poster.jpg"], "uploadDate": "2026-11-11T12:00:00+01:00", "duration": "PT22S", "contentUrl": "https://cashmatic-france.fr/assets/video/cmdf-selfpay460-cinema.mp4", "inLanguage": "fr", "publisher": {"@id": "https://cashmatic-france.fr/#cmdf"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Aller au contenu</a>
@@ -235,6 +246,16 @@
       </div>
     </div>
     <p class="spec-note">Dimensions : largeur × profondeur × hauteur. Sources : plans Cashmatic (mars 2025) et catalogue Cashmatic 2026.</p>
+    <figure class="vid-block rv">
+      <div class="vid-frame">
+        <video controls preload="none" playsinline poster="assets/video/cmdf-selfpay460-cinema-poster.webp" width="1920" height="1080" aria-describedby="vid-cap">
+          <source src="assets/video/cmdf-selfpay460-cinema.mp4" type="video/mp4">
+        </video>
+        <button class="vid-play" type="button" aria-label="Lire la vidéo : le SelfPay 460"><span class="vid-ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg></span>Voir la vidéo</button>
+      </div>
+      <figcaption class="vid-cap" id="vid-cap">Le SelfPay 460, le plus compact de la gamme Cashmatic.</figcaption>
+    </figure>
+    <script>(function(){var f=document.querySelector('.vid-block');if(!f)return;var v=f.querySelector('video'),b=f.querySelector('.vid-play');v.controls=false;b.addEventListener('click',function(){f.classList.add('playing');v.controls=true;v.play()})})()</script>
   </div>
 </section>
 
