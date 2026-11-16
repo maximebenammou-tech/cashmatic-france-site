@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cashmatic × Lightspeed</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14171c;--mute:#667085;--line:#e4e7ec;--ok:#0f8a4b;--warn:#b54708;--bad:#b42318;--brand:#0b5fff}
+*{box-sizing:border-box}body{margin:0;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:var(--card);border-bottom:1px solid var(--line)}
+h1{font-size:18px;margin:0}main{max-width:1100px;margin:0 auto;padding:20px;display:grid;gap:20px;grid-template-columns:1.4fr 1fr}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+h2{font-size:15px;margin:0 0 12px;color:var(--mute);text-transform:uppercase;letter-spacing:.04em}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;font-variant-numeric:tabular-nums}th{color:var(--mute);font-weight:600;font-size:13px}
+button{font:inherit;border:0;border-radius:8px;padding:8px 12px;background:var(--brand);color:#fff;cursor:pointer}button.ghost{background:#eef2ff;color:var(--brand)}button.danger{background:#fee4e2;color:var(--bad)}button:disabled{opacity:.5;cursor:default}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;background:#eef2ff;color:var(--brand)}
+.pill.ok{background:#e6f6ee;color:var(--ok)}.pill.warn{background:#fff3e6;color:var(--warn)}.pill.bad{background:#fee4e2;color:var(--bad)}
+.status{display:flex;gap:14px;font-size:13px;color:var(--mute)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin-right:6px}.dot.on{background:var(--ok)}.dot.off{background:var(--bad)}
+.big{font-size:34px;font-weight:700;margin:6px 0}.mute{color:var(--mute);font-size:13px}.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}ul.anom{margin:8px 0 0;padding-left:18px;color:var(--warn);font-size:13px}
+input{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;width:110px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Encaissement Cashmatic → Lightspeed K-Series</h1>
+  <div class="status"><span><i class="dot" id="d-ls"></i>Lightspeed</span><span><i class="dot" id="d-cm"></i>Cashmatic</span><a id="oauth" href="/oauth/start" hidden>Autoriser Lightspeed</a></div>
+</header>
+<main>
+  <section>
+    <div class="row" style="justify-content:space-between"><h2>Tickets ouverts</h2><button class="ghost" id="refresh">Actualiser</button></div>
+    <table><thead><tr><th>Ticket</th><th>Table</th><th>Total</th><th>Payé</th><th>Reste dû</th><th></th></tr></thead><tbody id="checks"><tr><td colspan="6" class="mute">Chargement…</td></tr></tbody></table>
+  </section>
+  <section id="pay">
+    <h2>Encaissement</h2>
+    <div id="pay-body" class="mute">Choisissez un ticket puis « Encaisser ».</div>
+  </section>
+  <section style="grid-column:1/-1">
+    <h2>Historique</h2>
+    <table><thead><tr><th>Heure</th><th>Ticket</th><th>Demandé</th><th>Encaissé</th><th>État</th><th>Référence</th></tr></thead><tbody id="history"></tbody></table>
+  </section>
+</main>
+<script>
+const $=s=>document.querySelector(s);const eur=n=>(Number(n||0)).toLocaleString('fr-FR',{style:'currency',currency:'EUR'});
+const LABEL={CREATED:['Préparation',''],CASHMATIC_IN_PROGRESS:['Paiement en cours',''],LIGHTSPEED_PENDING:['Envoi à la caisse',''],COMPLETED:['Confirmé','ok'],CANCELLED:['Annulé','warn'],LIGHTSPEED_FAILED:['Refusé par la caisse','bad'],LIGHTSPEED_UNCONFIRMED:['Non confirmé','warn'],ERROR:['Erreur','bad']};
+const pill=s=>{const [t,c]=LABEL[s]||[s,''];return `<span class="pill ${c}">${t}</span>`};
+let current=null,timer=null;
+async function api(p,o){const r=await fetch(p,o);const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
+async function status(){try{const s=await api('/api/status');$('#d-ls').className='dot '+(s.lightspeed.authenticated?'on':'off');$('#d-cm').className='dot '+(s.cashmatic.reachable?'on':'off');$('#oauth').hidden=s.lightspeed.authenticated}catch{}}
+async function checks(){const tb=$('#checks');try{const list=await api('/api/checks');tb.innerHTML=list.length?list.map(c=>`<tr><td>${c.name||c.accountIdentifier}<div class="mute">${c.accountIdentifier}</div></td><td>${c.tableNumber??'—'}</td><td>${eur(c.currentAmount)}</td><td>${eur(c.paidAmount)}</td><td><b>${eur(c.dueAmount)}</b></td><td><button data-id="${c.accountIdentifier}" data-due="${c.dueAmount}" data-name="${c.name||''}">Encaisser</button></td></tr>`).join(''):'<tr><td colspan="6" class="mute">Aucun ticket ouvert avec un reste dû.</td></tr>'}catch(e){tb.innerHTML=`<tr><td colspan="6" class="mute">${e.message}</td></tr>`}}
+async function history(){try{const l=await api('/api/payments');$('#history').innerHTML=l.map(p=>`<tr><td>${new Date(p.createdAt).toLocaleTimeString('fr-FR')}</td><td>${p.checkName||p.accountIdentifier}</td><td>${eur(p.requestedAmount)}</td><td>${p.cashmatic?eur(p.cashmatic.collected/100):'—'}</td><td>${pill(p.state)}</td><td class="mute">${p.reference}</td></tr>`).join('')}catch{}}
+function renderPay(p){const pr=p.progress||{};const pct=pr.requested?Math.min(100,Math.round(100*pr.inserted/pr.requested)):0;const live=p.state==='CASHMATIC_IN_PROGRESS';
+$('#pay-body').innerHTML=`<div class="mute">${p.checkName||''} · ${p.accountIdentifier}${p.tableNumber!=null?' · table '+p.tableNumber:''}</div><div class="big">${eur(p.requestedAmount)}</div>${pill(p.state)}
+<div class="bar"><i style="width:${pct}%"></i></div><div class="mute">Inséré ${eur(pr.inserted/100)} · rendu ${eur(pr.dispensed/100)}${p.cashmatic?' · conservé '+eur(p.cashmatic.collected/100):''}</div>
+${p.error?`<p class="mute" style="color:var(--bad)">${p.error}</p>`:''}${p.lightspeed&&p.lightspeed.reason?`<p class="mute" style="color:var(--bad)">Caisse : ${p.lightspeed.reason}</p>`:''}
+${p.anomalies.length?`<ul class="anom">${p.anomalies.map(a=>`<li>${a}</li>`).join('')}</ul>`:''}
+<div class="row" style="margin-top:12px"><button class="danger" id="cancel" ${live?'':'disabled'}>Annuler et rendre</button><button class="ghost" id="commit" ${live?'':'disabled'}>Accepter le montant inséré</button>${p.state==='LIGHTSPEED_UNCONFIRMED'?'<button class="ghost" id="reconcile">Revérifier</button>':''}</div>`;
+$('#cancel').onclick=()=>api(`/api/payments/${p.id}/cancel`,{method:'POST'}).catch(e=>alert(e.message));$('#commit').onclick=()=>api(`/api/payments/${p.id}/commit`,{method:'POST'}).catch(e=>alert(e.message));
+const rc=$('#reconcile');if(rc)rc.onclick=()=>api(`/api/payments/${p.id}/reconcile`,{method:'POST'}).then(renderPay).catch(e=>alert(e.message));}
+async function follow(id){clearInterval(timer);timer=setInterval(async()=>{try{const p=await api('/api/payments/'+id);renderPay(p);if(!['CREATED','CASHMATIC_IN_PROGRESS','LIGHTSPEED_PENDING'].includes(p.state)){clearInterval(timer);checks();history()}}catch{}},500)}
+$('#checks').addEventListener('click',async e=>{const b=e.target.closest('button[data-id]');if(!b)return;const due=Number(b.dataset.due);const v=prompt(`Montant à encaisser pour ${b.dataset.name||b.dataset.id} (reste dû ${eur(due)}) :`,due.toFixed(2));if(v===null)return;try{const p=await api('/api/payments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({accountIdentifier:b.dataset.id,amount:String(v).trim()===''?undefined:Number(String(v).replace(',','.'))})});current=p.id;renderPay(p);follow(p.id)}catch(err){alert(err.message)}});
+$('#refresh').onclick=()=>{checks();history()};status();checks();history();setInterval(status,15000);setInterval(checks,20000);
+</script>
+</body>
+</html>

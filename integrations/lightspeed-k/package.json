@@ -1,0 +1,12 @@
+{
+  "name": "cashmatic-lightspeed-k",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Connecteur entre un monnayeur Cashmatic (API locale) et Lightspeed Restaurant K-Series (API Order and Pay).",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test \"test/**/*.test.js\""
+  }
+}
